@@ -1,0 +1,25 @@
+{
+  "name": "food_hub",
+  "version": "1.0.0",
+  "description": "scripts to help in the running of the LFM Food Hub",
+  "main": "index.js",
+  "bin": {
+    "food_hub": "bin/producer_payments.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "LFM",
+    "San Juan Islands Food Hub",
+    "SJIFH"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mocha": "^9.1.3",
+    "playwright": "^1.17.1",
+    "winston": "^3.3.3"
+  }
+}
