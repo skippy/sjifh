@@ -8,7 +8,7 @@ on:
     #  allow manual updating
 
 jobs:
-  scrapper:
+  fee_runner:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
