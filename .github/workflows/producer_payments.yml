@@ -3,7 +3,7 @@ on:
   schedule:
     # Customize schedule expression at crontab.guru
     # currently running at 12pm UTC every Thursday
-    - cron: "0 12 * * THU"
+    - cron: "0 18 * * THU"
   workflow_dispatch:
     #  allow manual updating
 
