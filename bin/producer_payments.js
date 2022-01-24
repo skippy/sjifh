@@ -55,6 +55,7 @@ var argv = require('yargs/yargs')(hideBin(process.argv))
 async function processProducerFee(name, subperiod, amtPayable, page){
   var fees = null;
   var feeNote = null;
+  logger.debug(`processProducerFee: ${name} -- ${subperiod} -- ${amtPayable} -- ${page} -- ${NON_MEMBERS.indexOf(name)}`)
   if(NON_MEMBERS.indexOf(name) != -1){
     fees = -1 * amtPayable * NON_MEMBER_FEE;
     feeNote = NON_MEMBER_NOTE;
@@ -113,7 +114,7 @@ async function processProducerFee(name, subperiod, amtPayable, page){
     let locs = _.filter(_.range(allProducerNames.length), (i) => allProducerNames[i] === pn);
     for (let j = 0; j < locs.length; j++) {
       let loc = locs[j];
-      let amtPayable = parseFloat(allProducerAmtsPayable[loc].replace('$', ''));
+      let amtPayable = parseFloat(allProducerAmtsPayable[loc].replace('$', '').replace(',', ''));
       let subperiod = allProducerSubPeriods[loc];
       await processProducerFee(pn, subperiod, amtPayable, page);
     }
