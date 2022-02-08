@@ -73,13 +73,13 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   // the button is clicked by lets wait until the model is closed as the
   // underlying network event may not have been triggered; wait for
   // the modal to close.
-  await page.screenshot({ path: `output/producer_payment_model_#{name}-1.png` });
+  await page.screenshot({ path: 'output/producer_payment_model_' + name + '-1.png' });
   await page.click('button:text("Create Payment")')
   // if already exists, lets close and put a warning
   // if uk-notify-message uk-notify-message-warning
   //   uk-modal-close uk-close
   await page.waitForSelector('#producerPaymentModal', {state: 'hidden'})
-  await page.screenshot({ path: `output/producer_payment_model_#{name}-2.png` });
+  await page.screenshot({ path: 'output/producer_payment_model_' + name + '-2.png' });
   logger.debug("    submitting modal")
   return;
 }
