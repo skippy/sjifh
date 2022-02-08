@@ -26,6 +26,7 @@ jobs:
           LFM_PASSWORD: ${{ secrets.LFM_PASSWORD }}
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: screenshots
           path: output/**.png
