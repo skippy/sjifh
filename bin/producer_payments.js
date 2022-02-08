@@ -114,12 +114,12 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   const allProducerAmtsPayable = await page.locator('table.sticky-table-header tr td:nth-child(4)').allTextContents()
   const producerNames = _.chain(allProducerNames).uniq().without(...SKIP_PRODUCERS).value()
 
-  console.log('--------------')
-  console.log(allProducerNames)
-  console.log(allProducerSubPeriods)
-  console.log(allProducerAmtsPayable)
-  console.log(producerNames)
-  console.log('--------------')
+  logger.debug('--------------')
+  logger.debug(allProducerNames)
+  logger.debug(allProducerSubPeriods)
+  logger.debug(allProducerAmtsPayable)
+  logger.debug(producerNames)
+  logger.debug('--------------')
 
   for (let i = 0; i < producerNames.length; i++) {
     let pn = producerNames[i];
