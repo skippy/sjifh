@@ -100,11 +100,13 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   await page.click('button[type="submit"]');
 
   await page.goto(PRODUCER_PAYMENT_URL)
+  await page.selectOption('#periodId', {index: 2});
   await page.screenshot({ path: `output/producer_page1.png` });
   // wait until we have a new period running before calculating the old closed period
   await page.check('input[name="showPaymentsBySubPeriod"]');
   await page.click('button:text("Calculate Producer Payments")')
-  await page.selectOption('#periodId', {index: 2});
+  await page.waitForSelector('.uk-container .sticky-table-header', {state: 'visible'})
+
   await page.screenshot({ path: `output/producer_page2.png` });
 
   const allProducerNames       = await page.locator('table.sticky-table-header tr td:nth-child(2)').allTextContents()
