@@ -88,8 +88,8 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   const path = require('path');
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'chromium'));
   const { chromium } = require('playwright');
-  const context = await chromium.launchPersistentContext(userDataDir, { headless: argv.headless, acceptDownloads: true });
-  const page    = await context.newPage();
+  const browser = await chromium.launchPersistentContext(userDataDir, { headless: argv.headless, acceptDownloads: true });
+  const page    = await browser.newPage();
 
   await page.goto(LOGIN_URL);
 
@@ -98,17 +98,25 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   await page.click('button[type="submit"]');
 
   await page.goto(PRODUCER_PAYMENT_URL)
+  await page.screenshot({ path: `producer_page.png` });
   // wait until we have a new period running before calculating the old closed period
-  await page.selectOption('#periodId', {index: 2});
-
   await page.check('input[name="showPaymentsBySubPeriod"]');
   await page.click('button:text("Calculate Producer Payments")')
+  await page.selectOption('#periodId', {index: 2});
+  await page.screenshot({ path: `producer_page.png` });
 
   const allProducerNames       = await page.locator('table.sticky-table-header tr td:nth-child(2)').allTextContents()
   const allProducerSubPeriods  = await page.locator('table.sticky-table-header tr td:nth-child(3)').allTextContents()
   const allProducerAmtsPayable = await page.locator('table.sticky-table-header tr td:nth-child(4)').allTextContents()
-
   const producerNames = _.chain(allProducerNames).uniq().without(...SKIP_PRODUCERS).value()
+
+  console.log('--------------')
+  console.log(allProducerNames)
+  console.log(allProducerSubPeriods)
+  console.log(allProducerAmtsPayable)
+  console.log(producerNames)
+  console.log('--------------')
+
   for (let i = 0; i < producerNames.length; i++) {
     let pn = producerNames[i];
     let locs = _.filter(_.range(allProducerNames.length), (i) => allProducerNames[i] === pn);
@@ -120,7 +128,7 @@ async function processProducerFee(name, subperiod, amtPayable, page){
     }
   }
 
-  context.close();
+  browser.close();
   logger.info(`Finished adding fees to ${producerNames.length} producers`)
 })();
 

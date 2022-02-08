@@ -2,8 +2,8 @@ name: Producer Fee Calculation
 on:
   schedule:
     # Customize schedule expression at crontab.guru
-    # currently running at 8pm UTC every Thursday
-    - cron: "0 20 * * THU"
+    # currently running at 7pm UTC every Thursday
+    - cron: "0 19 * * THU"
   workflow_dispatch:
     #  allow manual updating
 
@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npx playwright install-deps chromium
-      - run: ./bin/producer_payments.js  --headless
+      - run: ./bin/producer_payments.js -vv --headless
         env:
           LFM_USERNAME: ${{ secrets.LFM_USERNAME }}
           LFM_PASSWORD: ${{ secrets.LFM_PASSWORD }}
