@@ -24,3 +24,9 @@ jobs:
         env:
           LFM_USERNAME: ${{ secrets.LFM_USERNAME }}
           LFM_PASSWORD: ${{ secrets.LFM_PASSWORD }}
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: output/**.png
+          retention-days: 10

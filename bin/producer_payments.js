@@ -73,11 +73,13 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   // the button is clicked by lets wait until the model is closed as the
   // underlying network event may not have been triggered; wait for
   // the modal to close.
+  await page.screenshot({ path: `output/producer_payment_model_#{name}-1.png` });
   await page.click('button:text("Create Payment")')
   // if already exists, lets close and put a warning
   // if uk-notify-message uk-notify-message-warning
   //   uk-modal-close uk-close
   await page.waitForSelector('#producerPaymentModal', {state: 'hidden'})
+  await page.screenshot({ path: `output/producer_payment_model_#{name}-2.png` });
   logger.debug("    submitting modal")
   return;
 }
@@ -98,12 +100,12 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   await page.click('button[type="submit"]');
 
   await page.goto(PRODUCER_PAYMENT_URL)
-  await page.screenshot({ path: `producer_page.png` });
+  await page.screenshot({ path: `output/producer_page1.png` });
   // wait until we have a new period running before calculating the old closed period
   await page.check('input[name="showPaymentsBySubPeriod"]');
   await page.click('button:text("Calculate Producer Payments")')
   await page.selectOption('#periodId', {index: 2});
-  await page.screenshot({ path: `producer_page.png` });
+  await page.screenshot({ path: `output/producer_page2.png` });
 
   const allProducerNames       = await page.locator('table.sticky-table-header tr td:nth-child(2)').allTextContents()
   const allProducerSubPeriods  = await page.locator('table.sticky-table-header tr td:nth-child(3)').allTextContents()
