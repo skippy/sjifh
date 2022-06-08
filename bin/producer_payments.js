@@ -19,7 +19,7 @@ const NON_MEMBER_FEE = 0.08
 const NON_MEMBER_NOTE = '8% fee'
 
 const LOGIN_URL            = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/Account/Login';
-const PRODUCER_PAYMENT_URL = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/Accounting/ProducerPayments';
+const PRODUCER_PAYMENT_URL = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/Accounting/PicklistPayments';
 
 const LFM_USERNAME = process.env.LFM_USERNAME;
 const LFM_PASSWORD = process.env.LFM_PASSWORD;
@@ -65,21 +65,27 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   }
   logger.verbose(` ${name} (${subperiod}) \$${fees} - "${feeNote}"`);
   logger.debug("    opening modal")
-  await page.click('a span.uk-icon-plus-circle');
-  await page.selectOption('#paytoProducer', {label: name});
-  await page.selectOption('#paytoSubPeriod', {label: subperiod});
+  page.click(`table.sticky-table-header tr td:text("${name}")`)
   await page.fill('#paytoAmount', fees.toString())
   await page.fill('#paytoNote', feeNote)
+  await page.click('button:text("Update")')
+
+
+  // await page.click('a span.uk-icon-plus-circle');
+  // await page.selectOption('#paytoProducer', {label: name});
+  // await page.selectOption('#paytoSubPeriod', {label: subperiod});
+  // await page.fill('#paytoAmount', fees.toString())
+  // await page.fill('#paytoNote', feeNote)
   // the button is clicked by lets wait until the model is closed as the
   // underlying network event may not have been triggered; wait for
   // the modal to close.
-  await page.screenshot({ path: 'output/producer_payment_model_' + name + '-1.png' });
-  await page.click('button:text("Create Payment")')
+  // await page.screenshot({ path: 'output/producer_payment_model_' + name + '-1.png' });
+  // await page.click('button:text("Create Payment")')
   // if already exists, lets close and put a warning
   // if uk-notify-message uk-notify-message-warning
   //   uk-modal-close uk-close
   await page.waitForSelector('#producerPaymentModal', {state: 'hidden'})
-  await page.screenshot({ path: 'output/producer_payment_model_' + name + '-2.png' });
+  // await page.screenshot({ path: 'output/producer_payment_model_' + name + '-2.png' });
   logger.debug("    submitting modal")
   return;
 }
@@ -94,22 +100,51 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   const page    = await browser.newPage();
 
   await page.goto(LOGIN_URL);
-
   await page.fill('input[name="Email"]', LFM_USERNAME);
   await page.fill('input[name="Password"]', LFM_PASSWORD);
   await page.click('button[type="submit"]');
 
   await page.goto(PRODUCER_PAYMENT_URL)
-  await page.selectOption('#periodId', {index: 2});
-  await page.screenshot({ path: `output/producer_page1.png` });
+  await page.click('#periodId')
   // wait until we have a new period running before calculating the old closed period
-  await page.check('input[name="showPaymentsBySubPeriod"]');
-  await page.click('button:text("Calculate Producer Payments")')
+  await page.locator('.select-checkbox-list .internal-periodId li:nth-child(3) input').click()
+
   await page.waitForSelector('.uk-container .sticky-table-header', {state: 'visible'})
+  await page.screenshot({ path: `output/producer_page1.png` });
 
-  await page.screenshot({ path: `output/producer_page2.png` });
+  // // Bulk update adjustment amount
+  // await page.click('#checkAllItems input')
+  // await page.click('button:text("Bulk Actions")')
+  // await page.click('a:text("Update Adjustment")')
+  // await page.fill('#bulkAdjustment', '-3')
+  // await page.selectOption('#bulkAdjustmentType', 'percent')
+  // await page.click('button:text("Add Adjustment")')
 
-  const allProducerNames       = await page.locator('table.sticky-table-header tr td:nth-child(2)').allTextContents()
+  // // bulk update adjustment note
+  // await page.click('#checkAllItems input')
+  // await page.click('button:text("Bulk Actions")')
+  // await page.click('a:text("Update Note")')
+  // await page.fill('#bulkNote', MEMBER_NOTE)
+  // await page.click('button:text("Add Note")')
+
+
+  // for (let i = 0; i < SKIP_PRODUCERS.length; i++) {
+  //   let prodName = SKIP_PRODUCERS[i];
+  //   page.click("table.sticky-table-header tr td:text('" + prodName + "')")
+  //   await page.fill('#paytoAmount', '')
+  //   await page.fill('#paytoNote', '')
+  //   await page.click('button:text("Update")')
+  // }
+
+  // for (let i = 0; i < NON_MEMBERS.length; i++) {
+  //   let prodName = NON_MEMBERS[i];
+  //   page.click("table.sticky-table-header tr td:text('" + prodName + "')")
+  //   await page.fill('#paytoAmount', '')
+  //   await page.fill('#paytoNote', '')
+  //   await page.click('button:text("Update")')
+  // }
+
+  const allProducerNames       = await page.locator('table.sticky-table-header tr td:nth-child(1)').allTextContents()
   const allProducerSubPeriods  = await page.locator('table.sticky-table-header tr td:nth-child(3)').allTextContents()
   const allProducerAmtsPayable = await page.locator('table.sticky-table-header tr td:nth-child(4)').allTextContents()
   const producerNames = _.chain(allProducerNames).uniq().without(...SKIP_PRODUCERS).value()
