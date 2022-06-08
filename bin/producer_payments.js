@@ -55,7 +55,7 @@ var argv = require('yargs/yargs')(hideBin(process.argv))
 async function processProducerFee(name, subperiod, amtPayable, page){
   var fees = null;
   var feeNote = null;
-  logger.debug(`processProducerFee: ${name} -- ${subperiod} -- ${amtPayable} -- ${page} -- ${NON_MEMBERS.indexOf(name)}`)
+  logger.debug(`processProducerFee: ${name} -- ${subperiod} -- ${amtPayable} -- ${NON_MEMBERS.indexOf(name)}`)
   if(NON_MEMBERS.indexOf(name) != -1){
     fees = -1 * amtPayable * NON_MEMBER_FEE;
     feeNote = NON_MEMBER_NOTE;
@@ -66,8 +66,10 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   logger.verbose(` ${name} (${subperiod}) \$${fees} - "${feeNote}"`);
   logger.debug("    opening modal")
   page.click(`table.sticky-table-header tr td:text("${name}")`)
-  await page.fill('#paytoAmount', fees.toString())
-  await page.fill('#paytoNote', feeNote)
+  await page.fill('#paytoAmount', fees.toString());
+  if (fees !== 0){
+    await page.fill('#paytoNote', feeNote)
+  }
   await page.click('button:text("Update")')
 
 
