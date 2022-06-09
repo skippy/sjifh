@@ -111,6 +111,10 @@ async function processProducerFee(name, subperiod, amtPayable, page){
   // wait until we have a new period running before calculating the old closed period
   await page.locator('.select-checkbox-list .internal-periodId li:nth-child(3) input').click()
 
+  await page.click('button:text("Actions")')
+  await page.click('a:text("Calculate Producer Payments")')
+  await page.click('button:text("OK")')
+
   await page.waitForSelector('.uk-container .sticky-table-header', {state: 'visible'})
   await page.screenshot({ path: `output/producer_page1.png` });
 
