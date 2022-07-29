@@ -2,8 +2,8 @@ name: Producer Fee Calculation
 on:
   schedule:
     # Customize schedule expression at crontab.guru
-    # currently running at 2pm UTC every Thursday
-    - cron: "0 14 * * THU"
+    # currently running at 11pm UTC every Thursday
+    - cron: "0 23 * * THU"
   workflow_dispatch:
     #  allow manual updating
 
