@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npx playwright install-deps chromium
-      - run: ./bin/producer_payments.js -v --headless
+      - run: ./bin/producer_payments.js -vv --headless
         env:
           LFM_USERNAME: ${{ secrets.LFM_USERNAME }}
           LFM_PASSWORD: ${{ secrets.LFM_PASSWORD }}
