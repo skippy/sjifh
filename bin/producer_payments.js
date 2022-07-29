@@ -10,7 +10,7 @@ const { hideBin } = require('yargs/helpers');
 process.env.TZ = 'UTC';
 
 
-const SKIP_PRODUCERS = ['San Juan County HCS']
+const SKIP_PRODUCERS = ['Island Grown Food Access Program']
 const NON_MEMBERS    = ['One Willow Farm']
 
 const MEMBER_FEE = 0.03
