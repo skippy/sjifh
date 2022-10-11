@@ -20,7 +20,7 @@
     "csv-generate": "^4.2.0",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
-    "logzio-nodejs": "^2.1.4",
+    "logzio-nodejs": "^2.1.5",
     "lodash": "^4.17.21",
     "mocha": "^10.0.0",
     "playwright": "^1.24.1",
