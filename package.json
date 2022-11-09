@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-generate": "^4.2.0",
+    "csv-generate": "^4.2.1",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "logzio-nodejs": "^2.1.4",
