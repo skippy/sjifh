@@ -20,10 +20,11 @@
     "csv-generate": "^4.2.2",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
-    "logzio-nodejs": "^2.1.5",
+    "dotenv": "^16.0.3",
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "playwright": "^1.30.0",
+    "stay-awake": "^0.0.3",
     "winston": "^3.8.2"
   }
 }
