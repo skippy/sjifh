@@ -1,0 +1,7 @@
+{
+  "webhook": {
+    "topic": "products/update",
+    "address": "pubsub://sjifh-378705:Orcas-coop-provisions-events",
+    "format": "json"
+  }
+}

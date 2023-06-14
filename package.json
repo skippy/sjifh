@@ -17,14 +17,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-generate": "^4.2.2",
+    "@shopify/shopify-api": "^6.2.0",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "dotenv": "^16.0.3",
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
+    "p-limit": "^4.0.0",
     "playwright": "^1.30.0",
+    "read-last-lines": "^1.8.0",
+    "shopify-api-node": "^3.12.5",
     "stay-awake": "^0.0.3",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "yargs": "^17.7.2"
   }
 }
