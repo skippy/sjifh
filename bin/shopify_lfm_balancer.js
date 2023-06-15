@@ -137,7 +137,6 @@ async function createShopifyProductStruct(lfmProd, skipImg=false) {
     case 'shopify-products':
       const shopifyResult = await shopify.getAllProducts()
       json = JSON.stringify(shopifyResult)
-      // json = JSON.stringify(shopifyProducts);
       break;
     case 'archive-shopify':
       await shopify.archiveAllProducts()

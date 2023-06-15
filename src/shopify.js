@@ -12,13 +12,6 @@ class Shopify {
   static CONCURRENT_API_LIMIT = 40
 
   constructor() {
-    // this.shopify = new Shopify({
-    //   apiKey: process.env.SHOPIFY_API_KEY,
-    //   apiSecretKey: process.env.SHOPIFY_ACCESS_TOKEN,
-    //   isCustomStoreApp: true,
-    //   isEmbeddedApp: false,
-    //   shopName: hostname,
-    // });
     this.client = new ShopifyApi({
       accessToken: config.get('shopify_access_token'),
       isCustomStoreApp: true,
@@ -28,70 +21,9 @@ class Shopify {
     });
   }
 
-
-// const client = new Shopify({
-//   shopName: 'your-shop-name',
-//   apiKey: 'your-api-key',
-//   password: 'your-api-password',
-// });
-      // await this.shopify.product.list();
-
-  // async getAllProducts() {
-  //   try {
-
-  //     let products = []
-  //     // Fetch products from the specific vendor
-  //     await this.client.product
-  //       .list()
-  //       .then(prods => {
-  //         products.push(...prods);
-  //         _.concat(products, prods);
-  //         // Process the retrieved products
-  //         // console.log(prods);
-  //       })
-  //       .catch(err => {
-  //         // Handle any errors
-  //         console.error(err);
-  //       });
-  //     return products;
-  //   } catch (error) {
-  //     console.error('Error retrieving products:', error);
-  //   }
-  // }
-
-
-  // async getAllProducts(){
-  //   let pageInfo;
-  //   do {
-  //     const response = await this.client.rest.Product.all({
-  //       ...pageInfo?.nextPage?.query,
-  //       session,
-  //       limit: 10,
-  //     });
-
-  //     const pageProducts = response.data;
-  //     // ... use pageProducts
-
-  //     pageInfo = response.pageInfo;
-  //   } while (pageInfo?.nextPage);
-  // }
-
-
-// (async () => {
-//   let params = { limit: 10 };
-
-//   do {
-//     const products = await shopify.product.list(params);
-
-//     console.log(products);
-
-//     params = products.nextPageParameters;
-//   } while (params !== undefined);
-// })().catch(console.error);
-
   async getAllProducts(block) {
     let options = {
-      limit: 250, // Maximum number of products per page (maximum is 250)
+      limit: 200, // Maximum number of products per page (maximum is 250)
       vendor: config.get('shopify_vendor_name')
     };
     const allProducts = []
@@ -154,8 +86,6 @@ class Shopify {
   async createProduct(prod){
     return await this.client.product.create(prod);
   }
-
-
 
 }
 

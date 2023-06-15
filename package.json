@@ -2,20 +2,30 @@
   "name": "food_hub",
   "version": "1.0.0",
   "description": "scripts to help in the running of the LFM Food Hub",
-  "main": "index.js",
+  "license": "MIT",
+  "author": "Adam Greene",
   "bin": {
-    "food_hub": "bin/producer_payments.js"
+    "producer_payment": "bin/producer_payments.js",
+    "shopify_lfm": "bin/shopify_lfm_balancer.js"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "npx standard --fix && npx standard",
+    "test": "mocha --recursive --timeout=50000 --exit --color"
   },
   "keywords": [
     "LFM",
+    "Local Food Marketplace",
+    "Shopify",
     "San Juan Islands Food Hub",
     "SJIFH"
   ],
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skippy/sjifh/issues"
+  },
+  "homepage": "https://github.com/skippy/sjifh#readme",
+  "engines": {
+    "node": ">=20.x"
+  },
   "dependencies": {
     "@shopify/shopify-api": "^6.2.0",
     "convict": "^6.2.4",
@@ -32,5 +42,11 @@
     "shopify-api-node": "^3.12.5",
     "winston": "^3.8.2",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "sinon": "^15.1.0"
   }
 }
