@@ -1,4 +1,4 @@
-const winston = require('winston');
+const winston = require('winston')
 const transport = new winston.transports.Console({
   format: winston.format.combine(
     winston.format.simple(),
@@ -6,9 +6,7 @@ const transport = new winston.transports.Console({
     // Format the metadata object
     winston.format.metadata({ fillExcept: ['message', 'level', 'timestamp', 'label'] })
   )
-});
-winston.add(transport);
+})
+winston.add(transport)
 
-module.exports=winston;
-
-
+module.exports = winston

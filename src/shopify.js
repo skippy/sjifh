@@ -1,54 +1,53 @@
 const logger = require('./modules/logger.js')
 const config = require('./config.js')
-const fetch = require('node-fetch');
-const limitPromise = import('p-limit');
+const fetch = require('node-fetch')
+const limitPromise = import('p-limit')
 
-const ShopifyApi = require('shopify-api-node');
-const _       = require('lodash');
+const ShopifyApi = require('shopify-api-node')
+const _ = require('lodash')
 const hostname = `${config.get('shopify_shop_origin')}.myshopify.com`
-
 
 class Shopify {
   static CONCURRENT_API_LIMIT = 40
 
-  constructor() {
+  constructor () {
     this.client = new ShopifyApi({
       accessToken: config.get('shopify_access_token'),
       isCustomStoreApp: true,
       isEmbeddedApp: false,
       autoLimit: true,
-      shopName: hostname,
-    });
+      shopName: hostname
+    })
   }
 
-  async getAllProducts(block) {
+  async getAllProducts (block) {
     let options = {
       limit: 200, // Maximum number of products per page (maximum is 250)
       vendor: config.get('shopify_vendor_name')
-    };
+    }
     const allProducts = []
     let counter = 0
     do {
-      const products = await this.client.product.list(options);
+      const products = await this.client.product.list(options)
       counter += products.length
       if (typeof block === 'function') {
         for (const prod of products) {
-          await block(prod);
+          await block(prod)
         }
       } else {
-        allProducts.push(...products);
+        allProducts.push(...products)
       }
-      options = products.nextPageParameters;
-    } while (options !== undefined);
+      options = products.nextPageParameters
+    } while (options !== undefined)
     logger.verbose(`retrieved Shopify products: ${counter}`)
 
     return (typeof block === 'function') ? null : allProducts
   }
 
-  async deleteAllProducts() {
-    const { default: limit } = await limitPromise;
-    const limiter = limit(Shopify.CONCURRENT_API_LIMIT);
-    const promises =[]
+  async deleteAllProducts () {
+    const { default: limit } = await limitPromise
+    const limiter = limit(Shopify.CONCURRENT_API_LIMIT)
+    const promises = []
     await this.getAllProducts((product) => {
       const promise = limiter(() => {
         logger.debug(`deleting shopify product id ${product.id}`)
@@ -57,37 +56,35 @@ class Shopify {
       promises.push(promise)
       // await this.client.product.delete(product.id)
     })
-    await Promise.all(promises);
+    await Promise.all(promises)
   }
 
-  async archiveAllProducts() {
-    const { default: limit } = await limitPromise;
-    const limiter = limit(Shopify.CONCURRENT_API_LIMIT);
-    const promises =[]
+  async archiveAllProducts () {
+    const { default: limit } = await limitPromise
+    const limiter = limit(Shopify.CONCURRENT_API_LIMIT)
+    const promises = []
     await this.getAllProducts((product) => {
-      if(product.status === 'archived') return
+      if (product.status === 'archived') return
       const promise = limiter(() => {
         logger.debug(`archiving shopify product id ${product.id}`)
-        return this.client.product.update(product.id, {status: 'archived'})
+        return this.client.product.update(product.id, { status: 'archived' })
       })
       promises.push(promise)
     })
-    await Promise.all(promises);
+    await Promise.all(promises)
   }
 
-  async archiveProduct(prodId) {
-    return await this.client.product.update(prodId, {status: 'archived'})
+  async archiveProduct (prodId) {
+    return await this.client.product.update(prodId, { status: 'archived' })
   }
 
-  async updateProduct(prod){
+  async updateProduct (prod) {
     return await this.client.product.update(prod.id, prod)
   }
 
-  async createProduct(prod){
-    return await this.client.product.create(prod);
+  async createProduct (prod) {
+    return await this.client.product.create(prod)
   }
-
 }
 
-
-module.exports = Shopify;
+module.exports = Shopify

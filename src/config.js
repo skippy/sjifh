@@ -2,7 +2,7 @@ const convict = require('convict')
 const convict_format_with_validator = require('convict-format-with-validator')
 const yaml = require('js-yaml')
 
-require("dotenv").config();
+require('dotenv').config()
 
 convict.addParser({ extension: ['yml', 'yaml'], parse: yaml.load })
 convict.addFormats(convict_format_with_validator)
@@ -59,7 +59,7 @@ const config = convict({
     format: String,
     default: null,
     env: 'GCP_PUBSUB_ADDRESS'
-  },
+  }
 })
 
 // Load environment dependent configuration
