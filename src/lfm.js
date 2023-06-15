@@ -65,6 +65,12 @@ class LFM {
       await delay(10)
     }
     const prodResponse = await (await productRequest.response()).json()
+    const requestParams = this._urlParams(productRequest.url())
+    if (!this._isPeriodOpen(requestParams['periodId'], requestParams['subperiodIds'])) {
+      logger.verbose('period is now closed to ordering')
+      return []
+    }
+
     if (prodResponse.readOnly) {
       logger.error('period is no longer open!')
       return []
@@ -151,6 +157,29 @@ class LFM {
     await this.page.waitForLoadState('domcontentloaded')
     await this.page.bringToFront()
     return this.page.url()
+  }
+
+
+  async _isPeriodOpen (periodId, subPeriodId) {
+    const periodData = await this.page.evaluate(async (url) => {
+      const fetchResponse = await fetch(url)
+      return await fetchResponse.json()
+    }, `https://sanjuanislandsfoodhub.lfmadmin.com/grow/api/SetupPeriodEdit/${periodId}`)
+
+    const subPeriodData = periodData.subperiods.find(sub => sub.psDayId == parseInt(subPeriodId))
+    const today = new Date();
+    const startDate = new Date(`${subPeriodData['firstOrderDay']} ${subPeriodData['firstOrderTime']}`);
+    const endDate = new Date(`${subPeriodData['orderCutoffDay']} ${subPeriodData['orderCutoffTime']}`);
+    return (today >= startDate && today <= endDate)
+  }
+
+
+  _urlParams (url) {
+    const urlParams = url.split('?')[1]
+    const params = _.fromPairs(
+      _.map(urlParams.split('&'), (param) => param.split('='))
+    );
+    return params
   }
 
   async _enrichProducts (products) {

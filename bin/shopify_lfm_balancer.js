@@ -139,13 +139,6 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
       await shopify.archiveAllProducts()
       break
     case 'update-shopify':
-      const shopifyProducts = await shopify.getAllProducts()
-      const shopifyMap = shopifyProducts.reduce((result, item) => {
-        const key = _.trimStart(item.variants[0].sku, 'puid_')
-        result.set(key, item)
-        return result
-      }, new Map())
-
       await lfm.login()
       const lfmProducts = await lfm.getAvailProducts()
       if (lfmProducts.length < 1) {
@@ -155,6 +148,13 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
         const { default: limit } = await limitPromise
         const limiter = limit(Shopify.CONCURRENT_API_LIMIT)
         const promises = []
+        const shopifyProducts = await shopify.getAllProducts()
+        const shopifyMap = shopifyProducts.reduce((result, item) => {
+          const key = _.trimStart(item.variants[0].sku, 'puid_')
+          result.set(key, item)
+          return result
+        }, new Map())
+
 
         const reviewedPuIds = new Set()
         const numProducts = lfmProducts.length
@@ -190,8 +190,12 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
         if (missingShopifyProducts.length > 0) {
           logger.verbose(`archiving ${missingShopifyProducts.length} shopify products which are not active on LFM`)
           for (const missingShopifyProduct of missingShopifyProducts) {
-            logger.verbose(`archiving shopify product id ${missingShopifyProduct.id}: not active on LFM`)
-            await shopify.archiveProduct(missingShopifyProduct.id)
+            if(shopify.productIsArchived(missingShopifyProduct)){
+              logger.debug(`shopify product id ${missingShopifyProduct.id}: already archived`)
+            } else {
+              logger.debug(`archiving shopify product id ${missingShopifyProduct.id}: not active on LFM`)
+              await shopify.archiveProduct(missingShopifyProduct.id)
+            }
           }
         }
       }

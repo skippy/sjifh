@@ -1,6 +1,7 @@
 const chai = require('chai')
 const sinon = require('sinon')
-
+const fs = require('fs');
+const _ = require('lodash');
 const expect = chai.expect
 const sandbox = sinon.createSandbox()
 
@@ -15,6 +16,8 @@ const sandbox = sinon.createSandbox()
 // } = require('../src/shopify');
 
 const Shopify = require('../src/shopify')
+
+let sampleShopifyProducts = require('./data/shopify_products.json');
 
 describe('Shopify Unit Tests', () => {
   let instance
@@ -44,16 +47,40 @@ describe('Shopify Unit Tests', () => {
   })
 
   describe('archiveAllProducts', () => {
-    it('should archive all products', () => {
-      // Test implementation here
+    // beforeEach(() => {
+    //   sandbox.stub(instance.client.product, 'list').returns(sampleShopifyProducts)
+    // })
+
+    it('should archive all products', async () => {
+      sandbox.stub(instance.client.product, 'list').returns(sampleShopifyProducts)
+      const shopifyStub = sandbox.stub(instance.client.product, 'update')
+      await instance.archiveAllProducts()
+      expect(sampleShopifyProducts.length).to.be.greaterThan(1);
+      expect(shopifyStub.callCount).to.equal(sampleShopifyProducts.length)
+      for (let i = 0; i < sampleShopifyProducts.length; i++) {
+        expect(shopifyStub.getCall(i).args.length).to.be.eql(2)
+        expect(shopifyStub.getCall(i).args[0]).to.eql(sampleShopifyProducts[i].id)
+        expect(shopifyStub.getCall(i).args[1]).to.eql({ status: 'archived' })
+      }
+    })
+
+    it('should skip the update if the product is already archived', async () => {
+      const sampleShopifyProductsArchived = _.cloneDeep(sampleShopifyProducts);
+      for (const prod of sampleShopifyProductsArchived) {
+        prod.status = 'archived'
+      }
+      sandbox.stub(instance.client.product, 'list').returns(sampleShopifyProductsArchived)
+      const shopifyStub = sandbox.stub(instance.client.product, 'update')
+      await instance.archiveAllProducts()
+      expect(shopifyStub.callCount).to.eql(0)
     })
   })
 
   describe('archiveProduct', () => {
-    it('should archive a specific product', () => {
+    it('should archive a specific product', async () => {
       const shopifyStub = sandbox.stub(instance.client.product, 'update')
       const product = { id: 10, field: 'value' }
-      instance.archiveProduct(product.id)
+      await instance.archiveProduct(product.id)
       expect(shopifyStub.calledOnce).to.be.true
       expect(shopifyStub.getCall(0).args.length).to.be.eql(2)
       expect(shopifyStub.getCall(0).args[0]).to.eql(product.id)
@@ -62,10 +89,10 @@ describe('Shopify Unit Tests', () => {
   })
 
   describe('updateProduct', () => {
-    it('should update a specific product', () => {
+    it('should update a specific product', async () => {
       const shopifyStub = sandbox.stub(instance.client.product, 'update')
       const product = { id: 10, field: 'value' }
-      instance.updateProduct(product)
+      await instance.updateProduct(product)
       expect(shopifyStub.calledOnce).to.be.true
       expect(shopifyStub.getCall(0).args.length).to.be.eql(2)
       expect(shopifyStub.getCall(0).args[0]).to.eql(product.id)
@@ -74,10 +101,10 @@ describe('Shopify Unit Tests', () => {
   })
 
   describe('createProduct', () => {
-    it('should create a new product', () => {
+    it('should create a new product', async () => {
       const shopifyStub = sandbox.stub(instance.client.product, 'create')
       const product = { id: 10, field: 'value' }
-      instance.createProduct(product)
+      await instance.createProduct(product)
       expect(shopifyStub.calledOnce).to.be.true
       expect(shopifyStub.getCall(0).args.length).to.be.eql(1)
       expect(shopifyStub.getCall(0).args[0]).to.eql(product)

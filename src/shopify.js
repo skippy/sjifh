@@ -8,7 +8,7 @@ const _ = require('lodash')
 const hostname = `${config.get('shopify_shop_origin')}.myshopify.com`
 
 class Shopify {
-  static CONCURRENT_API_LIMIT = 40
+  static CONCURRENT_API_LIMIT = 20
 
   constructor () {
     this.client = new ShopifyApi({
@@ -84,6 +84,10 @@ class Shopify {
 
   async createProduct (prod) {
     return await this.client.product.create(prod)
+  }
+
+  async productIsArchived(prod) {
+    return prod.status === 'archived'
   }
 }
 
