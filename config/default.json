@@ -1,0 +1,6 @@
+{
+	"log_level": "info",
+	"shopify_shop_origin": "provisions-co-op-wholesale",
+	"shopify_vendor_name": "San Juan Islands Food Hub",
+	"gcp_pubsub_address": "pubsub://sjifh-378705:Orcas-coop-provisions-events"
+}

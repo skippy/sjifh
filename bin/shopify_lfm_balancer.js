@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 'use strict';
 
 /*
@@ -12,6 +13,7 @@
 
 const yargs  = require('yargs');
 const logger = require(`${process.mainModule.path}/../src/modules/logger`);
+const config = require('../src/config.js')
 const _      = require('lodash');
 const fetch  = require('node-fetch');
 const { hideBin }  = require('yargs/helpers');
@@ -20,7 +22,6 @@ const LFM          = require('../src/lfm');
 const limitPromise = import('p-limit');
 
 process.env.TZ = 'UTC';
-require("dotenv").config();
 
 const QTY_BUFFER = 1
 
@@ -32,8 +33,8 @@ const argv = require('yargs/yargs')(hideBin(process.argv))
   .command('update-shopify', '# update Shopify with LFM products')
   .command('delete-shopify', '# remove all products from Shopify')
   .command('archive-shopify', '# archive all products from Shopify')
-  .option('headless', {
-      description: 'run in headless mode',
+  .option('headful', {
+      description: 'run in headful mode',
       type: 'boolean',
       default: false
   })
@@ -92,7 +93,7 @@ async function createShopifyProductStruct(lfmProd, skipImg=false) {
     status: 'active',
     product_type: `${lfmProd.category} / ${lfmProd.subcategory}`,
     tags: tags,
-    vendor: process.env.SHOPIFY_VENDOR_NAME,
+    vendor: config.get('shopify_vendor_name'),
     body_html: body_html,
     sku: `puid_${lfmProd.puId}`,
     images: [
@@ -123,7 +124,7 @@ async function createShopifyProductStruct(lfmProd, skipImg=false) {
 
 (async () => {
   let json = ''
-  const lfm = new LFM(argv.headless);
+  const lfm = new LFM(argv.headful);
   const shopify = new Shopify();
 
   switch(argv._[0]) {
@@ -168,23 +169,35 @@ async function createShopifyProductStruct(lfmProd, skipImg=false) {
           const promise = limiter(async () => {
             if(existingShopifyProduct){
               //modify
-              logger.debug(`${i+1}/${numProducts}: updating shopify product id ${existingShopifyProduct.id}`)
               const skipImgDownload = existingShopifyProduct.status === 'active'
+              logger.debug(`${i+1}/${numProducts}: updating shopify product id ${existingShopifyProduct.id} (and img? ${!skipImgDownload})`)
               const shopifyProduct = await createShopifyProductStruct(lfmProd, skipImgDownload)
-              return shopify.client.product.update(existingShopifyProduct.id, shopifyProduct)
+              shopifyProduct.id = existingShopifyProduct.id
+              return shopify.updateProduct(shopifyProduct)
+              // return shopify.client.product.update(existingShopifyProduct.id, shopifyProduct)
             }else{
               //insert!
               logger.debug(`${i+1}/${numProducts}: inserting new shopify product`)
               const shopifyProduct = await createShopifyProductStruct(lfmProd)
-              return shopify.client.product.create(shopifyProduct);
+              return shopify.createProduct(shopifyProduct)
+              // return shopify.client.product.create(shopifyProduct);
             }
           })
           promises.push(promise)
-
-
-          reviewedPuIds.add(lfmProd.puId)
+          reviewedPuIds.add(lfmProd.puId.toString())
         }
         await Promise.all(promises)
+
+        // archive all shopify products that don't exist in LFM
+        const reviewedPuidKeys = Array.from(reviewedPuIds);
+        const missingShopifyProducts = _.values(_.omit(Object.fromEntries(shopifyMap), reviewedPuidKeys))
+        if(missingShopifyProducts.length > 0) {
+          logger.verbose(`archiving ${missingShopifyProducts.length} shopify products which are not active on LFM`)
+          for (const missingShopifyProduct of missingShopifyProducts) {
+            logger.verbose(`archiving shopify product id ${missingShopifyProduct.id}: not active on LFM`)
+            await shopify.archiveProduct(missingShopifyProduct.id)
+          }
+        }
       }
       break;
     case 'delete-shopify':

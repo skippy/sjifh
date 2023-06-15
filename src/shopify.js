@@ -1,15 +1,15 @@
 const logger = require('./modules/logger.js')
+const config = require('./config.js')
 const fetch = require('node-fetch');
 const limitPromise = import('p-limit');
 
-require("dotenv").config();
 const ShopifyApi = require('shopify-api-node');
 const _       = require('lodash');
-const hostname = `${process.env.SHOP_ORIGIN}.myshopify.com`
+const hostname = `${config.get('shopify_shop_origin')}.myshopify.com`
 
 
 class Shopify {
-  static CONCURRENT_API_LIMIT = 20
+  static CONCURRENT_API_LIMIT = 40
 
   constructor() {
     // this.shopify = new Shopify({
@@ -19,9 +19,8 @@ class Shopify {
     //   isEmbeddedApp: false,
     //   shopName: hostname,
     // });
-
     this.client = new ShopifyApi({
-      accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+      accessToken: config.get('shopify_access_token'),
       isCustomStoreApp: true,
       isEmbeddedApp: false,
       autoLimit: true,
@@ -93,7 +92,7 @@ class Shopify {
   async getAllProducts(block) {
     let options = {
       limit: 250, // Maximum number of products per page (maximum is 250)
-      vendor: process.env.SHOPIFY_VENDOR_NAME
+      vendor: config.get('shopify_vendor_name')
     };
     const allProducts = []
     let counter = 0
@@ -136,13 +135,27 @@ class Shopify {
     await this.getAllProducts((product) => {
       if(product.status === 'archived') return
       const promise = limiter(() => {
-        this.client.product.update(product.id, {status: 'archived'})
+        logger.debug(`archiving shopify product id ${product.id}`)
+        return this.client.product.update(product.id, {status: 'archived'})
       })
       promises.push(promise)
-      // await this.client.product.update(product.id, {status: 'archived'})
     })
     await Promise.all(promises);
   }
+
+  async archiveProduct(prodId) {
+    return await this.client.product.update(prodId, {status: 'archived'})
+  }
+
+  async updateProduct(prod){
+    return await this.client.product.update(prod.id, prod)
+  }
+
+  async createProduct(prod){
+    return await this.client.product.create(prod);
+  }
+
+
 
 }
 

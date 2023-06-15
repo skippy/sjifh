@@ -1,3 +1,4 @@
+const config = require('./config.js')
 const logger = require('./modules/logger.js')
 const { chromium } = require('playwright');
 const os   = require('os');
@@ -8,33 +9,28 @@ const fs   = require('fs')
 // const limit = require('p-limit');
 const limitPromise = import('p-limit');
 
-require("dotenv").config();
-
-
 const LOGIN_URL           = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/Account/Login';
 const PRODUCTS_AVAIL_URL  = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/Home/AdminAvailability'
 const PRODUCT_PRICING_URL = 'https://sanjuanislandsfoodhub.lfmadmin.com/grow/api/UnitPrice/'
 
 const LFM_CUSTOMER_ID     = 1728
-const LFM_USERNAME = process.env.LFM_USERNAME;
-const LFM_PASSWORD = process.env.LFM_PASSWORD;
 
 // anything more leads to diminishing returns, esp. on the server
 const LFM_CONCURRENT_CALL_LIMIT = 3
 
 
 class LFM {
-  constructor(headless = false) {
+  constructor(headful = false) {
     this._userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'chromium'));
-    this._headless    = headless
+    this._headful    = headful
   }
 
   async login() {
-    const browser = await chromium.launchPersistentContext(this._userDataDir, { headless: this._headless, acceptDownloads: false });
+    const browser = await chromium.launchPersistentContext(this._userDataDir, { headless: !this._headful, acceptDownloads: false });
     this.page    = await browser.newPage();
     await this.page.goto(LOGIN_URL);
-    await this.page.fill('input[name="Email"]', LFM_USERNAME);
-    await this.page.fill('input[name="Password"]', LFM_PASSWORD);
+    await this.page.fill('input[name="Email"]', config.get('lfm_username'));
+    await this.page.fill('input[name="Password"]', config.get('lfm_password'));
     await this.page.click('button[type="submit"]');
   }
 
