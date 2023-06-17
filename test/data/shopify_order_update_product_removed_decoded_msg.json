@@ -1,0 +1,3095 @@
+{
+  "presentment_currency": "USD",
+  "total_discounts": "0.00",
+  "discount_applications": [],
+  "closed_at": null,
+  "shipping_lines": [],
+  "id": 5028757864626,
+  "phone": null,
+  "po_number": null,
+  "total_tax": "0.00",
+  "current_total_price_set": {
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "customer": {
+    "email": "adam.greene@gmail.com",
+    "accepts_marketing_updated_at": "2023-06-15T11:04:00-07:00",
+    "tax_exempt": false,
+    "id": 6649863635122,
+    "note": "",
+    "tax_exemptions": [],
+    "updated_at": "2023-06-16T18:35:01-07:00",
+    "tags": "Business 4, Orcas, SJIFH Pickup",
+    "multipass_identifier": null,
+    "verified_email": true,
+    "currency": "USD",
+    "created_at": "2023-06-15T11:04:00-07:00",
+    "accepts_marketing": false,
+    "email_marketing_consent": {
+      "opt_in_level": "single_opt_in",
+      "state": "not_subscribed",
+      "consent_updated_at": null
+    },
+    "admin_graphql_api_id": "gid://shopify/Customer/6649863635122",
+    "phone": null,
+    "last_name": "Greene",
+    "sms_marketing_consent": null,
+    "state": "enabled",
+    "default_address": {
+      "default": true,
+      "country_name": "United States",
+      "first_name": "Adam",
+      "company": "Oak Knoll LLC",
+      "province_code": "WA",
+      "customer_id": 6649863635122,
+      "id": 7998416355506,
+      "last_name": "Greene",
+      "address2": null,
+      "country": "United States",
+      "name": "Adam Greene",
+      "province": "Washington",
+      "country_code": "US",
+      "city": "Friday Harbor",
+      "phone": "(503) 784-2104",
+      "zip": "98250",
+      "address1": "1585 Douglas Rd"
+    },
+    "marketing_opt_in_level": null,
+    "first_name": "Adam"
+  },
+  "current_subtotal_price": "0.00",
+  "current_total_tax": "0.00",
+  "tags": "SJIFH Orders",
+  "original_total_duties_set": null,
+  "checkout_id": 32372625539250,
+  "referring_site": null,
+  "total_weight": 0,
+  "browser_ip": "207.32.165.103",
+  "device_id": null,
+  "customer_locale": "en",
+  "landing_site": null,
+  "total_tax_set": {
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "payment_terms": {
+    "due_in_days": null,
+    "created_at": "2023-06-16T16:14:43-07:00",
+    "payment_terms_type": "receipt",
+    "payment_terms_name": "Due on receipt",
+    "payment_schedules": [
+      {
+        "id": 11199283378,
+        "issued_at": null,
+        "currency": "USD",
+        "updated_at": "2023-06-16T16:14:43-07:00",
+        "completed_at": null,
+        "amount": "53.74",
+        "created_at": "2023-06-16T16:14:43-07:00",
+        "due_at": null
+      }
+    ],
+    "id": 9929162930,
+    "updated_at": "2023-06-16T16:14:43-07:00"
+  },
+  "total_line_items_price": "483.66",
+  "source_identifier": "86dbd5397a11f505822e76f0b966df51",
+  "token": "fcdaaff46c0536a9bb91ef29bd26c47f",
+  "order_status_url": "https://provisionswholesale.coop/41111748762/orders/fcdaaff46c0536a9bb91ef29bd26c47f/authenticate?key=2f10f0702e62aec9956a370a0c48f89e",
+  "fulfillments": [],
+  "number": 6817,
+  "current_total_additional_fees_set": null,
+  "checkout_token": "b452531c9627a1baecf4e5bd1b210434",
+  "admin_graphql_api_id": "gid://shopify/Order/5028757864626",
+  "total_tip_received": "0.00",
+  "total_line_items_price_set": {
+    "presentment_money": {
+      "amount": "483.66",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "483.66"
+    }
+  },
+  "source_name": "shopify_draft_order",
+  "reference": "86dbd5397a11f505822e76f0b966df51",
+  "order_number": 7817,
+  "original_total_additional_fees_set": null,
+  "location_id": null,
+  "subtotal_price": "483.66",
+  "current_total_price": "0.00",
+  "tax_lines": [],
+  "buyer_accepts_marketing": false,
+  "shipping_address": {
+    "address2": null,
+    "phone": "(503) 784-2104",
+    "first_name": "Adam",
+    "city": "Friday Harbor",
+    "address1": "1585 Douglas Rd",
+    "zip": "98250",
+    "company": "Oak Knoll LLC",
+    "country": "United States",
+    "last_name": "Greene",
+    "name": "Adam Greene",
+    "longitude": -123.042906,
+    "country_code": "US",
+    "province": "Washington",
+    "latitude": 48.501762,
+    "province_code": "WA"
+  },
+  "refunds": [
+    {
+      "transactions": [],
+      "order_adjustments": [],
+      "total_duties_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        }
+      },
+      "processed_at": "2023-06-16T16:25:56-07:00",
+      "note": null,
+      "order_id": 5028757864626,
+      "created_at": "2023-06-16T16:25:56-07:00",
+      "duties": [],
+      "restock": false,
+      "admin_graphql_api_id": "gid://shopify/Refund/874749001906",
+      "user_id": 55862755482,
+      "id": 874749001906,
+      "refund_line_items": [
+        {
+          "line_item": {
+            "vendor": "San Juan Islands Food Hub",
+            "fulfillment_service": "manual",
+            "quantity": 9,
+            "grams": 0,
+            "sku": "puid_12325",
+            "name": "Lamb Rack (1.70-2.85)",
+            "requires_shipping": true,
+            "discount_allocations": [],
+            "duties": [],
+            "total_discount_set": {
+              "shop_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              }
+            },
+            "total_discount": "0.00",
+            "taxable": false,
+            "variant_id": 43118129545394,
+            "product_id": 7710097211570,
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "title": "Lamb Rack (1.70-2.85)",
+            "price_set": {
+              "shop_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              }
+            },
+            "fulfillment_status": null,
+            "id": 12622731346098,
+            "tax_lines": [
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price": "0.00"
+              },
+              {
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "channel_liable": false,
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "rate": 0.018,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00",
+                "title": "Washington State Tax"
+              },
+              {
+                "channel_liable": false,
+                "rate": 0.018,
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.065,
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "channel_liable": false,
+                "title": "San Juan County Tax"
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.065,
+                "price": "0.00",
+                "channel_liable": false,
+                "title": "Washington State Tax"
+              },
+              {
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "channel_liable": false
+              },
+              {
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "rate": 0.065,
+                "channel_liable": false
+              },
+              {
+                "price": "0.00",
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "rate": 0.065
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "rate": 0.018,
+                "channel_liable": false
+              },
+              {
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.018,
+                "price": "0.00"
+              }
+            ],
+            "variant_title": null,
+            "product_exists": true,
+            "fulfillable_quantity": 0,
+            "properties": [],
+            "price": "53.74",
+            "gift_card": false,
+            "variant_inventory_management": null
+          },
+          "restock_type": "no_restock",
+          "subtotal": 53.74,
+          "total_tax": 0,
+          "quantity": 1,
+          "total_tax_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "line_item_id": 12622731346098,
+          "location_id": null,
+          "subtotal_set": {
+            "presentment_money": {
+              "amount": "53.74",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            }
+          },
+          "id": 400198336690
+        }
+      ]
+    },
+    {
+      "restock": false,
+      "id": 874750148786,
+      "processed_at": "2023-06-16T17:33:38-07:00",
+      "transactions": [],
+      "user_id": 55862755482,
+      "order_id": 5028757864626,
+      "order_adjustments": [],
+      "admin_graphql_api_id": "gid://shopify/Refund/874750148786",
+      "duties": [],
+      "created_at": "2023-06-16T17:33:38-07:00",
+      "note": null,
+      "total_duties_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "refund_line_items": [
+        {
+          "subtotal_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "107.48"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "107.48"
+            }
+          },
+          "restock_type": "no_restock",
+          "total_tax_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "location_id": null,
+          "line_item": {
+            "quantity": 9,
+            "discount_allocations": [],
+            "fulfillment_status": null,
+            "fulfillable_quantity": 0,
+            "tax_lines": [
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax"
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price": "0.00",
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                }
+              },
+              {
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax"
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "title": "Washington State Tax",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "rate": 0.065,
+                "channel_liable": false
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "rate": 0.018,
+                "price": "0.00"
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "rate": 0.065
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "rate": 0.018
+              },
+              {
+                "channel_liable": false,
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "rate": 0.018,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "title": "San Juan County Tax"
+              }
+            ],
+            "variant_inventory_management": null,
+            "product_exists": true,
+            "total_discount": "0.00",
+            "name": "Lamb Rack (1.70-2.85)",
+            "taxable": false,
+            "total_discount_set": {
+              "shop_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              }
+            },
+            "gift_card": false,
+            "price": "53.74",
+            "grams": 0,
+            "product_id": 7710097211570,
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "price_set": {
+              "shop_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              }
+            },
+            "duties": [],
+            "properties": [],
+            "variant_title": null,
+            "title": "Lamb Rack (1.70-2.85)",
+            "fulfillment_service": "manual",
+            "sku": "puid_12325",
+            "vendor": "San Juan Islands Food Hub",
+            "requires_shipping": true,
+            "id": 12622731346098,
+            "variant_id": 43118129545394
+          },
+          "total_tax": 0,
+          "quantity": 2,
+          "id": 400199712946,
+          "subtotal": 107.48,
+          "line_item_id": 12622731346098
+        }
+      ]
+    },
+    {
+      "refund_line_items": [
+        {
+          "line_item_id": 12622731346098,
+          "quantity": 2,
+          "total_tax_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "line_item": {
+            "requires_shipping": true,
+            "fulfillable_quantity": 0,
+            "variant_id": 43118129545394,
+            "taxable": false,
+            "fulfillment_status": null,
+            "duties": [],
+            "product_exists": true,
+            "sku": "puid_12325",
+            "variant_inventory_management": null,
+            "total_discount_set": {
+              "presentment_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              },
+              "shop_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              }
+            },
+            "discount_allocations": [],
+            "name": "Lamb Rack (1.70-2.85)",
+            "fulfillment_service": "manual",
+            "total_discount": "0.00",
+            "properties": [],
+            "price": "53.74",
+            "title": "Lamb Rack (1.70-2.85)",
+            "grams": 0,
+            "product_id": 7710097211570,
+            "variant_title": null,
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "id": 12622731346098,
+            "price_set": {
+              "presentment_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              },
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              }
+            },
+            "quantity": 9,
+            "gift_card": false,
+            "tax_lines": [
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.018,
+                "price": "0.00"
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "channel_liable": false
+              },
+              {
+                "price": "0.00",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax"
+              },
+              {
+                "title": "Washington State Tax",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "rate": 0.065,
+                "price": "0.00"
+              },
+              {
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                }
+              },
+              {
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "rate": 0.065,
+                "channel_liable": false,
+                "title": "Washington State Tax"
+              },
+              {
+                "channel_liable": false,
+                "rate": 0.018,
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "rate": 0.065
+              },
+              {
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "title": "San Juan County Tax"
+              }
+            ],
+            "vendor": "San Juan Islands Food Hub"
+          },
+          "subtotal": 107.48,
+          "total_tax": 0,
+          "location_id": null,
+          "id": 400199876786,
+          "restock_type": "no_restock",
+          "subtotal_set": {
+            "presentment_money": {
+              "amount": "107.48",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "amount": "107.48",
+              "currency_code": "USD"
+            }
+          }
+        }
+      ],
+      "id": 874750378162,
+      "transactions": [],
+      "order_id": 5028757864626,
+      "created_at": "2023-06-16T17:53:43-07:00",
+      "admin_graphql_api_id": "gid://shopify/Refund/874750378162",
+      "restock": false,
+      "note": null,
+      "processed_at": "2023-06-16T17:53:43-07:00",
+      "total_duties_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "user_id": 55862755482,
+      "order_adjustments": [],
+      "duties": []
+    },
+    {
+      "order_adjustments": [],
+      "user_id": 55862755482,
+      "created_at": "2023-06-16T18:06:47-07:00",
+      "note": null,
+      "admin_graphql_api_id": "gid://shopify/Refund/874750574770",
+      "id": 874750574770,
+      "refund_line_items": [
+        {
+          "line_item": {
+            "total_discount": "0.00",
+            "grams": 0,
+            "fulfillment_status": null,
+            "duties": [],
+            "price_set": {
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              },
+              "shop_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              }
+            },
+            "quantity": 9,
+            "price": "53.74",
+            "total_discount_set": {
+              "shop_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              }
+            },
+            "product_exists": true,
+            "id": 12622731346098,
+            "product_id": 7710097211570,
+            "variant_title": null,
+            "name": "Lamb Rack (1.70-2.85)",
+            "vendor": "San Juan Islands Food Hub",
+            "gift_card": false,
+            "fulfillment_service": "manual",
+            "requires_shipping": true,
+            "discount_allocations": [],
+            "fulfillable_quantity": 0,
+            "sku": "puid_12325",
+            "properties": [],
+            "tax_lines": [
+              {
+                "price": "0.00",
+                "rate": 0.065,
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax"
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "San Juan County Tax"
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "rate": 0.018
+              },
+              {
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "channel_liable": false
+              },
+              {
+                "channel_liable": false,
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "rate": 0.065,
+                "price": "0.00",
+                "title": "Washington State Tax"
+              },
+              {
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "channel_liable": false
+              },
+              {
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.065
+              },
+              {
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "rate": 0.018
+              },
+              {
+                "rate": 0.065,
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax"
+              },
+              {
+                "channel_liable": false,
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "rate": 0.018,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00",
+                "title": "San Juan County Tax"
+              }
+            ],
+            "variant_inventory_management": null,
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "variant_id": 43118129545394,
+            "title": "Lamb Rack (1.70-2.85)",
+            "taxable": false
+          },
+          "line_item_id": 12622731346098,
+          "restock_type": "no_restock",
+          "total_tax_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "total_tax": 0,
+          "subtotal_set": {
+            "presentment_money": {
+              "amount": "53.74",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "amount": "53.74",
+              "currency_code": "USD"
+            }
+          },
+          "location_id": null,
+          "id": 400200007858,
+          "quantity": 1,
+          "subtotal": 53.74
+        }
+      ],
+      "processed_at": "2023-06-16T18:06:47-07:00",
+      "duties": [],
+      "restock": false,
+      "total_duties_set": {
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "transactions": [],
+      "order_id": 5028757864626
+    },
+    {
+      "created_at": "2023-06-16T18:20:10-07:00",
+      "note": null,
+      "restock": false,
+      "transactions": [],
+      "duties": [],
+      "admin_graphql_api_id": "gid://shopify/Refund/874750673074",
+      "refund_line_items": [
+        {
+          "restock_type": "no_restock",
+          "total_tax_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "quantity": 1,
+          "total_tax": 0,
+          "line_item_id": 12622731346098,
+          "id": 400200302770,
+          "subtotal": 53.74,
+          "location_id": null,
+          "subtotal_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            },
+            "shop_money": {
+              "amount": "53.74",
+              "currency_code": "USD"
+            }
+          },
+          "line_item": {
+            "variant_id": 43118129545394,
+            "product_exists": true,
+            "grams": 0,
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "variant_title": null,
+            "discount_allocations": [],
+            "sku": "puid_12325",
+            "price": "53.74",
+            "duties": [],
+            "id": 12622731346098,
+            "total_discount_set": {
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              },
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              }
+            },
+            "variant_inventory_management": null,
+            "name": "Lamb Rack (1.70-2.85)",
+            "fulfillable_quantity": 0,
+            "quantity": 9,
+            "vendor": "San Juan Islands Food Hub",
+            "fulfillment_status": null,
+            "total_discount": "0.00",
+            "tax_lines": [
+              {
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "rate": 0.065,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                }
+              },
+              {
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00",
+                "rate": 0.065
+              },
+              {
+                "rate": 0.018,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "title": "San Juan County Tax"
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price": "0.00"
+              },
+              {
+                "rate": 0.018,
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "San Juan County Tax"
+              },
+              {
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "rate": 0.065,
+                "channel_liable": false
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "price": "0.00"
+              },
+              {
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.065
+              },
+              {
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "channel_liable": false
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.065,
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price": "0.00"
+              },
+              {
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "San Juan County Tax",
+                "rate": 0.018
+              },
+              {
+                "rate": 0.065,
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax"
+              },
+              {
+                "channel_liable": false,
+                "price": "0.00",
+                "rate": 0.018,
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                }
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "price": "0.00"
+              }
+            ],
+            "title": "Lamb Rack (1.70-2.85)",
+            "requires_shipping": true,
+            "properties": [],
+            "price_set": {
+              "shop_money": {
+                "amount": "53.74",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              }
+            },
+            "gift_card": false,
+            "fulfillment_service": "manual",
+            "product_id": 7710097211570,
+            "taxable": false
+          }
+        }
+      ],
+      "id": 874750673074,
+      "processed_at": "2023-06-16T18:20:10-07:00",
+      "order_id": 5028757864626,
+      "user_id": 55862755482,
+      "total_duties_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "order_adjustments": []
+    },
+    {
+      "order_id": 5028757864626,
+      "duties": [],
+      "admin_graphql_api_id": "gid://shopify/Refund/874750902450",
+      "restock": false,
+      "order_adjustments": [],
+      "refund_line_items": [
+        {
+          "line_item_id": 12622731346098,
+          "subtotal": 53.74,
+          "quantity": 1,
+          "location_id": null,
+          "id": 400200499378,
+          "restock_type": "no_restock",
+          "total_tax_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "line_item": {
+            "price": "53.74",
+            "properties": [],
+            "quantity": 9,
+            "product_id": 7710097211570,
+            "fulfillment_status": null,
+            "variant_inventory_management": null,
+            "name": "Lamb Rack (1.70-2.85)",
+            "total_discount_set": {
+              "presentment_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              },
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              }
+            },
+            "sku": "puid_12325",
+            "grams": 0,
+            "title": "Lamb Rack (1.70-2.85)",
+            "gift_card": false,
+            "product_exists": true,
+            "id": 12622731346098,
+            "tax_lines": [
+              {
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "Washington State Tax",
+                "rate": 0.065
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00",
+                "rate": 0.065,
+                "title": "Washington State Tax"
+              },
+              {
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00",
+                "rate": 0.018,
+                "channel_liable": false,
+                "title": "San Juan County Tax"
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00",
+                "rate": 0.065,
+                "title": "Washington State Tax"
+              },
+              {
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax",
+                "channel_liable": false
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "rate": 0.065
+              },
+              {
+                "channel_liable": false,
+                "rate": 0.018,
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "rate": 0.065,
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00",
+                "title": "Washington State Tax"
+              },
+              {
+                "channel_liable": false,
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "title": "Washington State Tax",
+                "channel_liable": false,
+                "price": "0.00",
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.065
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "rate": 0.018
+              },
+              {
+                "price": "0.00",
+                "rate": 0.065,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "channel_liable": false
+              },
+              {
+                "price": "0.00",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "San Juan County Tax"
+              },
+              {
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "price": "0.00"
+              }
+            ],
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "fulfillable_quantity": 0,
+            "variant_title": null,
+            "price_set": {
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              },
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              }
+            },
+            "fulfillment_service": "manual",
+            "total_discount": "0.00",
+            "duties": [],
+            "variant_id": 43118129545394,
+            "taxable": false,
+            "discount_allocations": [],
+            "vendor": "San Juan Islands Food Hub",
+            "requires_shipping": true
+          },
+          "subtotal_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            }
+          },
+          "total_tax": 0
+        }
+      ],
+      "id": 874750902450,
+      "processed_at": "2023-06-16T18:34:57-07:00",
+      "user_id": 55862755482,
+      "note": null,
+      "total_duties_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "transactions": [],
+      "created_at": "2023-06-16T18:34:57-07:00"
+    },
+    {
+      "admin_graphql_api_id": "gid://shopify/Refund/874751426738",
+      "id": 874751426738,
+      "created_at": "2023-06-16T18:54:07-07:00",
+      "transactions": [],
+      "restock": false,
+      "order_id": 5028757864626,
+      "duties": [],
+      "order_adjustments": [],
+      "refund_line_items": [
+        {
+          "restock_type": "no_restock",
+          "subtotal": 53.74,
+          "total_tax": 0,
+          "quantity": 1,
+          "location_id": null,
+          "id": 400201384114,
+          "line_item_id": 12622731346098,
+          "subtotal_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "53.74"
+            }
+          },
+          "total_tax_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "line_item": {
+            "fulfillment_service": "manual",
+            "total_discount": "0.00",
+            "variant_title": null,
+            "total_discount_set": {
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "0.00"
+              },
+              "presentment_money": {
+                "amount": "0.00",
+                "currency_code": "USD"
+              }
+            },
+            "variant_id": 43118129545394,
+            "price": "53.74",
+            "fulfillment_status": null,
+            "title": "Lamb Rack (1.70-2.85)",
+            "name": "Lamb Rack (1.70-2.85)",
+            "fulfillable_quantity": 0,
+            "taxable": false,
+            "discount_allocations": [],
+            "requires_shipping": true,
+            "vendor": "San Juan Islands Food Hub",
+            "product_id": 7710097211570,
+            "id": 12622731346098,
+            "quantity": 9,
+            "price_set": {
+              "presentment_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              },
+              "shop_money": {
+                "currency_code": "USD",
+                "amount": "53.74"
+              }
+            },
+            "gift_card": false,
+            "properties": [],
+            "product_exists": true,
+            "duties": [],
+            "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+            "grams": 0,
+            "variant_inventory_management": null,
+            "tax_lines": [
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "title": "Washington State Tax",
+                "rate": 0.065,
+                "price": "0.00",
+                "channel_liable": false
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "channel_liable": false,
+                "rate": 0.018,
+                "title": "San Juan County Tax"
+              },
+              {
+                "rate": 0.065,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price": "0.00"
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.018,
+                "channel_liable": false
+              },
+              {
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "rate": 0.065,
+                "channel_liable": false,
+                "price": "0.00"
+              },
+              {
+                "title": "San Juan County Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "channel_liable": false,
+                "rate": 0.018
+              },
+              {
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "channel_liable": false,
+                "rate": 0.065,
+                "title": "Washington State Tax"
+              },
+              {
+                "title": "San Juan County Tax",
+                "price": "0.00",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "channel_liable": false,
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00",
+                "rate": 0.065
+              },
+              {
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price": "0.00",
+                "rate": 0.018,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "rate": 0.065,
+                "channel_liable": false,
+                "price": "0.00",
+                "title": "Washington State Tax",
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00",
+                "title": "San Juan County Tax"
+              },
+              {
+                "price": "0.00",
+                "channel_liable": false,
+                "price_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "title": "Washington State Tax",
+                "rate": 0.065
+              },
+              {
+                "rate": 0.018,
+                "title": "San Juan County Tax",
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  }
+                },
+                "price": "0.00"
+              },
+              {
+                "title": "San Juan County Tax",
+                "rate": 0.018,
+                "channel_liable": false,
+                "price_set": {
+                  "shop_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "price": "0.00"
+              }
+            ],
+            "sku": "puid_12325"
+          }
+        }
+      ],
+      "total_duties_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        }
+      },
+      "user_id": 55862755482,
+      "note": null,
+      "processed_at": "2023-06-16T18:54:07-07:00"
+    }
+  ],
+  "app_id": 1354745,
+  "created_at": "2023-06-16T16:14:43-07:00",
+  "financial_status": "voided",
+  "current_total_discounts_set": {
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "processed_at": "2023-06-16T16:14:42-07:00",
+  "current_total_discounts": "0.00",
+  "total_price": "483.66",
+  "updated_at": "2023-06-16T18:54:08-07:00",
+  "total_shipping_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "client_details": {
+    "browser_height": null,
+    "session_hash": null,
+    "browser_width": null,
+    "accept_language": "en-US,en;q=0.9",
+    "browser_ip": "207.32.165.103",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+  },
+  "estimated_taxes": false,
+  "user_id": 55862755482,
+  "email": "adam.greene@gmail.com",
+  "taxes_included": false,
+  "total_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "483.66"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "483.66"
+    }
+  },
+  "current_total_tax_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "discount_codes": [],
+  "currency": "USD",
+  "subtotal_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "483.66"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "483.66"
+    }
+  },
+  "name": "#7817",
+  "contact_email": "adam.greene@gmail.com",
+  "note_attributes": [],
+  "fulfillment_status": null,
+  "landing_site_ref": null,
+  "cancelled_at": null,
+  "current_total_duties_set": null,
+  "test": false,
+  "note": null,
+  "cancel_reason": null,
+  "tax_exempt": false,
+  "payment_gateway_names": [
+    "manual"
+  ],
+  "line_items": [
+    {
+      "properties": [],
+      "id": 12622731346098,
+      "title": "Lamb Rack (1.70-2.85)",
+      "product_id": 7710097211570,
+      "discount_allocations": [],
+      "variant_title": null,
+      "grams": 0,
+      "quantity": 9,
+      "fulfillment_service": "manual",
+      "price": "53.74",
+      "taxable": false,
+      "product_exists": true,
+      "vendor": "San Juan Islands Food Hub",
+      "duties": [],
+      "fulfillment_status": null,
+      "price_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "53.74"
+        },
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "53.74"
+        }
+      },
+      "variant_id": 43118129545394,
+      "name": "Lamb Rack (1.70-2.85)",
+      "total_discount": "0.00",
+      "fulfillable_quantity": 0,
+      "gift_card": false,
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "tax_lines": [
+        {
+          "price": "0.00",
+          "channel_liable": false,
+          "title": "Washington State Tax",
+          "rate": 0.065,
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          }
+        },
+        {
+          "channel_liable": false,
+          "rate": 0.065,
+          "price_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "price": "0.00",
+          "title": "Washington State Tax"
+        },
+        {
+          "price_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "title": "San Juan County Tax",
+          "rate": 0.018,
+          "price": "0.00",
+          "channel_liable": false
+        },
+        {
+          "rate": 0.065,
+          "title": "Washington State Tax",
+          "price": "0.00",
+          "channel_liable": false,
+          "price_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          }
+        },
+        {
+          "price": "0.00",
+          "price_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "rate": 0.018,
+          "channel_liable": false,
+          "title": "San Juan County Tax"
+        },
+        {
+          "price_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "title": "Washington State Tax",
+          "price": "0.00",
+          "rate": 0.065,
+          "channel_liable": false
+        },
+        {
+          "channel_liable": false,
+          "rate": 0.018,
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "price": "0.00",
+          "title": "San Juan County Tax"
+        },
+        {
+          "rate": 0.065,
+          "title": "Washington State Tax",
+          "price": "0.00",
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "channel_liable": false
+        },
+        {
+          "channel_liable": false,
+          "price": "0.00",
+          "title": "San Juan County Tax",
+          "rate": 0.018,
+          "price_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          }
+        },
+        {
+          "price": "0.00",
+          "title": "Washington State Tax",
+          "channel_liable": false,
+          "price_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "rate": 0.065
+        },
+        {
+          "rate": 0.018,
+          "title": "San Juan County Tax",
+          "channel_liable": false,
+          "price": "0.00",
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          }
+        },
+        {
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "price": "0.00",
+          "rate": 0.065,
+          "title": "Washington State Tax",
+          "channel_liable": false
+        },
+        {
+          "title": "San Juan County Tax",
+          "rate": 0.018,
+          "channel_liable": false,
+          "price_set": {
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "price": "0.00"
+        },
+        {
+          "price_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "channel_liable": false,
+          "rate": 0.065,
+          "price": "0.00",
+          "title": "Washington State Tax"
+        },
+        {
+          "rate": 0.018,
+          "title": "San Juan County Tax",
+          "price_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "shop_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "price": "0.00",
+          "channel_liable": false
+        },
+        {
+          "price_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            }
+          },
+          "rate": 0.018,
+          "channel_liable": false,
+          "price": "0.00",
+          "title": "San Juan County Tax"
+        }
+      ],
+      "sku": "puid_12325",
+      "variant_inventory_management": null,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12622731346098",
+      "requires_shipping": true
+    }
+  ],
+  "total_outstanding": "0.00",
+  "confirmed": true,
+  "cart_token": null,
+  "source_url": null,
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "merchant_of_record_app_id": null,
+  "billing_address": {
+    "zip": "98250",
+    "country_code": "US",
+    "province": "Washington",
+    "first_name": "Adam",
+    "last_name": "Greene",
+    "province_code": "WA",
+    "name": "Adam Greene",
+    "address1": "1585 Douglas Rd",
+    "city": "Friday Harbor",
+    "country": "United States",
+    "latitude": null,
+    "longitude": null,
+    "address2": null,
+    "phone": "(503) 784-2104",
+    "company": "Oak Knoll LLC"
+  }
+}

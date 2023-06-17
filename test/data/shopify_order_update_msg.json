@@ -1,0 +1,296 @@
+{
+  "current_total_duties_set": null,
+  "total_price": "301.00",
+  "number": 6812,
+  "name": "#7812",
+  "merchant_of_record_app_id": null,
+  "financial_status": "pending",
+  "shipping_lines": [],
+  "note_attributes": [],
+  "app_id": 580111,
+  "total_tax_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "subtotal_price": "301.00",
+  "billing_address": {
+    "country": "United States",
+    "name": "Adam Greene",
+    "zip": "98250",
+    "address2": null,
+    "latitude": 48.501762,
+    "company": "Oak Knoll LLC",
+    "longitude": -123.042906,
+    "address1": "1585 Douglas Rd",
+    "province_code": "WA",
+    "first_name": "Adam",
+    "last_name": "Greene",
+    "phone": "(503) 784-2104",
+    "city": "Friday Harbor",
+    "province": "Washington",
+    "country_code": "US"
+  },
+  "cancel_reason": null,
+  "location_id": null,
+  "total_tip_received": "0.00",
+  "fulfillment_status": null,
+  "subtotal_price_set": {
+    "presentment_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    }
+  },
+  "discount_applications": [],
+  "phone": null,
+  "tags": "",
+  "referring_site": "",
+  "closed_at": null,
+  "total_tax": "0.00",
+  "po_number": null,
+  "customer_locale": "en",
+  "processed_at": "2023-06-15T21:35:12-07:00",
+  "customer": {
+    "created_at": "2023-06-15T11:04:00-07:00",
+    "last_name": "Greene",
+    "tax_exemptions": [],
+    "note": "===start custom fields by bss-b2b-rf=== \n---2023/06/15---  \nI am a member of Orcas Food Co-op: option-3  \n===end custom fields by bss-b2b-rf=== \n\n",
+    "state": "enabled",
+    "updated_at": "2023-06-15T21:35:17-07:00",
+    "tax_exempt": false,
+    "email": "adam.greene@gmail.com",
+    "sms_marketing_consent": null,
+    "marketing_opt_in_level": null,
+    "admin_graphql_api_id": "gid://shopify/Customer/6649863635122",
+    "currency": "USD",
+    "first_name": "Adam",
+    "accepts_marketing_updated_at": "2023-06-15T11:04:00-07:00",
+    "phone": null,
+    "email_marketing_consent": {
+      "state": "not_subscribed",
+      "opt_in_level": "single_opt_in",
+      "consent_updated_at": null
+    },
+    "tags": "member",
+    "id": 6649863635122,
+    "default_address": {
+      "address2": null,
+      "last_name": "Greene",
+      "id": 7998416355506,
+      "province_code": "WA",
+      "country": "United States",
+      "address1": "1585 Douglas Rd",
+      "default": true,
+      "zip": "98250",
+      "city": "Friday Harbor",
+      "company": "Oak Knoll LLC",
+      "country_name": "United States",
+      "phone": "(503) 784-2104",
+      "first_name": "Adam",
+      "name": "Adam Greene",
+      "country_code": "US",
+      "province": "Washington",
+      "customer_id": 6649863635122
+    },
+    "accepts_marketing": false,
+    "verified_email": true,
+    "multipass_identifier": null
+  },
+  "payment_terms": null,
+  "id": 5027945939122,
+  "client_details": {
+    "browser_ip": "207.32.165.103",
+    "browser_width": null,
+    "browser_height": null,
+    "session_hash": null,
+    "accept_language": "en-US",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+  },
+  "email": "adam.greene@gmail.com",
+  "fulfillments": [],
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "total_line_items_price": "301.00",
+  "tax_lines": [],
+  "test": false,
+  "tax_exempt": false,
+  "cart_token": "c6246606e8ba28a3bee28f5146e2b4f8",
+  "order_number": 7812,
+  "current_total_discounts_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "created_at": "2023-06-15T21:35:17-07:00",
+  "source_name": "web",
+  "taxes_included": false,
+  "discount_codes": [],
+  "buyer_accepts_marketing": false,
+  "landing_site_ref": null,
+  "line_items": [
+    {
+      "fulfillment_service": "manual",
+      "total_discount": "0.00",
+      "variant_title": null,
+      "duties": [],
+      "fulfillable_quantity": 1,
+      "taxable": false,
+      "gift_card": false,
+      "vendor": "San Juan Islands Food Hub",
+      "variant_inventory_management": "shopify",
+      "fulfillment_status": null,
+      "tax_lines": [],
+      "quantity": 1,
+      "price": "301.00",
+      "sku": "puid_13502",
+      "variant_id": 43116719571122,
+      "product_exists": true,
+      "total_discount_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "name": "Subprimals, Mutton (half-animal (quartered))",
+      "requires_shipping": false,
+      "title": "Subprimals, Mutton (half-animal (quartered))",
+      "id": 12620827787442,
+      "grams": 0,
+      "product_id": 7710097834162,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12620827787442",
+      "discount_allocations": [],
+      "price_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "301.00"
+        },
+        "shop_money": {
+          "amount": "301.00",
+          "currency_code": "USD"
+        }
+      },
+      "properties": []
+    }
+  ],
+  "reference": "144dee5e9234c97414aa4418d398a09d",
+  "total_price_set": {
+    "presentment_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "301.00"
+    }
+  },
+  "checkout_id": 32365829062834,
+  "user_id": null,
+  "total_discounts": "0.00",
+  "cancelled_at": null,
+  "updated_at": "2023-06-15T21:35:21-07:00",
+  "total_outstanding": "301.00",
+  "original_total_duties_set": null,
+  "current_total_price": "301.00",
+  "device_id": null,
+  "current_total_tax_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "current_total_tax": "0.00",
+  "source_identifier": "144dee5e9234c97414aa4418d398a09d",
+  "total_weight": 0,
+  "contact_email": "adam.greene@gmail.com",
+  "total_shipping_price_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "browser_ip": "207.32.165.103",
+  "current_subtotal_price": "301.00",
+  "currency": "USD",
+  "note": "---2023/06/15---  \nI am a member of Orcas Food Co-op: option-3",
+  "source_url": null,
+  "checkout_token": "706069474dbc362a0109c8efc686863a",
+  "refunds": [],
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "301.00"
+    }
+  },
+  "current_total_price_set": {
+    "shop_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "301.00"
+    }
+  },
+  "confirmed": true,
+  "total_line_items_price_set": {
+    "presentment_money": {
+      "amount": "301.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "301.00"
+    }
+  },
+  "current_total_additional_fees_set": null,
+  "landing_site": "/",
+  "estimated_taxes": false,
+  "current_total_discounts": "0.00",
+  "admin_graphql_api_id": "gid://shopify/Order/5027945939122",
+  "presentment_currency": "USD",
+  "original_total_additional_fees_set": null,
+  "token": "ab1b37a379ab8678eab94100ef5235b4",
+  "order_status_url": "https://provisionswholesale.coop/41111748762/orders/ab1b37a379ab8678eab94100ef5235b4/authenticate?key=55a798ae0c2df0b9e5fd83e65adf5070",
+  "shipping_address": null,
+  "payment_gateway_names": [
+    "I Have a Credit Card on File"
+  ]
+}

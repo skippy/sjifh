@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/playwright:next
+FROM mcr.microsoft.com/playwright:v1.33.0
+# FROM mcr.microsoft.com/playwright:next
 
 RUN apt-get update && \
 	curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
@@ -12,10 +13,8 @@ RUN npm install
 
 COPY . .
 
-#ARG SHOPIFY_API_KEY
-#ENV SHOPIFY_API_KEY=$SHOPIFY_API_KEY
-
-#RUN npm install
+# Expose the port that your Express.js application listens on
+EXPOSE 3000
 
 # Set the command to run your application
 #CMD ["yarn", "start"]

@@ -55,6 +55,26 @@ const config = convict({
     required: true,
     env: 'SHOPIFY_VENDOR_NAME'
   },
+  shopify_price_min: {
+    format: Number,
+    default: null,
+    env: 'SHOPIFY_PRICE_MIN'
+  },
+  shopify_qty_buffer: {
+    format: Number,
+    default: null,
+    env: 'SHOPIFY_QTY_BUFFER'
+  },
+  firebase_collection_name: {
+    format: String,
+    default: null,
+    env: 'FIREBASE_COLLECTION_NAME'
+  },
+  google_cloud_project: {
+    format: String,
+    default: null,
+    env: 'GOOGLE_CLOUD_PROJECT'
+  },
   gcp_pubsub_address: {
     format: String,
     default: null,

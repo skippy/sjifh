@@ -1,7 +1,7 @@
 const chai = require('chai')
 const sinon = require('sinon')
-const fs = require('fs');
-const _ = require('lodash');
+const fs = require('fs')
+const _ = require('lodash')
 const expect = chai.expect
 const sandbox = sinon.createSandbox()
 
@@ -17,7 +17,7 @@ const sandbox = sinon.createSandbox()
 
 const Shopify = require('../src/shopify')
 
-let sampleShopifyProducts = require('./data/shopify_products.json');
+const sampleShopifyProducts = require('./data/shopify_products.json')
 
 describe('Shopify Unit Tests', () => {
   let instance
@@ -55,7 +55,7 @@ describe('Shopify Unit Tests', () => {
       sandbox.stub(instance.client.product, 'list').returns(sampleShopifyProducts)
       const shopifyStub = sandbox.stub(instance.client.product, 'update')
       await instance.archiveAllProducts()
-      expect(sampleShopifyProducts.length).to.be.greaterThan(1);
+      expect(sampleShopifyProducts.length).to.be.greaterThan(1)
       expect(shopifyStub.callCount).to.equal(sampleShopifyProducts.length)
       for (let i = 0; i < sampleShopifyProducts.length; i++) {
         expect(shopifyStub.getCall(i).args.length).to.be.eql(2)
@@ -65,7 +65,7 @@ describe('Shopify Unit Tests', () => {
     })
 
     it('should skip the update if the product is already archived', async () => {
-      const sampleShopifyProductsArchived = _.cloneDeep(sampleShopifyProducts);
+      const sampleShopifyProductsArchived = _.cloneDeep(sampleShopifyProducts)
       for (const prod of sampleShopifyProductsArchived) {
         prod.status = 'archived'
       }

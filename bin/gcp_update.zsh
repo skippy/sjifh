@@ -6,6 +6,7 @@ local DEFAULT_GCLOUD_PROJECT='sjifh-378705'
 local DEFAULT_GCLOUD_REGION='us-west1'
 
 local DOCKER_IMAGE_NAME='sjifh'
+local FIREBASE_DATABASE_NAME='sjifh-shopify-orders'
 
 local shopify_update_schedule='*/5 * * * *'
 # local job_name='check-cardholders-refill'
@@ -29,15 +30,25 @@ local service_acct=`gcloud iam service-accounts list --project ${gcloud_project}
 
 echo "\n"
 
+
+echo '---- setting up firebase'
+gcloud services enable firestore.googleapis.com
+if gcloud firestore databases describe 2>/dev/null; then
+  # nothing to do
+else
+  gcloud firestore databases create --location="${gcloud_region}"
+fi
+echo "\n"
+
 echo '---- building and pushing docker img'
 local docker_img_path="gcr.io/${gcloud_project}/${DOCKER_IMAGE_NAME}"
 gcloud auth configure-docker 2>/dev/null
 # we need to specify platform; if it is built on ARM, it won't work on gcloud
 docker build --platform=linux/amd64 -t "${docker_img_path}" .
 docker push "${docker_img_path}"
+echo "\n"
 
 # gcloud_project
-
 
 
 
@@ -61,13 +72,45 @@ gcloud run jobs deploy update-shopify-from-lfm \
   --set-secrets 'LFM_USERNAME=LFM_USERNAME:latest' \
   --set-secrets 'SHOPIFY_ACCESS_TOKEN=SHOPIFY_ACCESS_TOKEN:latest'
 
+gcloud run deploy sjifh-shopify-listener \
+  --image "${docker_img_path}" \
+  --region "${gcloud_region}" \
+  --command 'node' \
+  --args='src/shopify_listener_service.js' \
+  --port=8080 \
+  --no-allow-unauthenticated \
+  --service-account "${service_acct}" \
+  --timeout=60 \
+  --concurrency=5 \
+  --cpu-boost \
+  --max-instances=3 \
+  --min-instances=1 \
+  --platform="managed" \
+  --cpu-throttling \
+  --execution-environment='gen2' \
+  --clear-env-vars \
+  --set-secrets 'LFM_PASSWORD=LFM_PASSWORD:latest' \
+  --set-secrets 'LFM_USERNAME=LFM_USERNAME:latest' \
+  --set-secrets 'SHOPIFY_ACCESS_TOKEN=SHOPIFY_ACCESS_TOKEN:latest'
+  # --set-env-vars='DEBUG=express:*' \
+  # --set-config-maps=healthCheck.path=/healthz2,healthCheck.initialDelay=2,healthCheck.timeout=2,healthCheck.checkInterval=60 \
+
   # --command '/usr/src/app/bin/shopify_lfm_balancer.js update-shopify -vvv' \
 # FIXME
 # gcloud scheduler jobs list --location="us-west1" | grep update-shopify-from-lfm-scheduler-trigger
 
 # gcloud scheduler jobs describe update-shopify-from-lfm-scheduler-trigger --location="us-west1" 2>/dev/null | grep -q "${shopify_update_schedule}"
 if gcloud scheduler jobs describe update-shopify-from-lfm-scheduler-trigger --location="${gcloud_region}" 2>/dev/null | grep -q "${shopify_update_schedule}"; then
-  # nothing to do
+  gcloud scheduler jobs update http update-shopify-from-lfm-scheduler-trigger \
+    --schedule="${shopify_update_schedule}" \
+    --uri="https://${gcloud_region}-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/${gcloud_project}/jobs/update-shopify-from-lfm:run" \
+    --http-method="POST" \
+    --location="${gcloud_region}" \
+    --max-retry-attempts=1 \
+    --attempt-deadline="360s" \
+    --oauth-service-account-email="${service_acct}"
+  gcloud scheduler jobs resume update-shopify-from-lfm-scheduler-trigger \
+    --location="${gcloud_region}"
 else
   gcloud scheduler jobs delete update-shopify-from-lfm-scheduler-trigger --location="${gcloud_region}" --quiet
 
@@ -80,6 +123,24 @@ else
     --attempt-deadline="360s" \
     --oauth-service-account-email="${service_acct}"
 fi
+
+
+# # Configure the push subscription
+# gcloud pubsub subscriptions (create|update|modify-push-config) ${SUBSCRIPTION} \
+#  --topic=${TOPIC} \
+#  --push-endpoint=${PUSH_ENDPOINT_URI} \
+#  --push-auth-service-account=${SERVICE_ACCOUNT_EMAIL} \
+#  --push-auth-token-audience=${OPTIONAL_AUDIENCE_OVERRIDE}
+
+# # Your Google-managed service account
+# # `service-{PROJECT_NUMBER}@gcp-sa-pubsub.iam.gserviceaccount.com` needs to have the
+# # `iam.serviceAccountTokenCreator` role.
+# PUBSUB_SERVICE_ACCOUNT="service-${PROJECT_NUMBER}@gcp-sa-pubsub.iam.gserviceaccount.com"
+# gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+#  --member="serviceAccount:${PUBSUB_SERVICE_ACCOUNT}"\
+#  --role='roles/iam.serviceAccountTokenCreator'
+
+
 # gcloud scheduler jobs create http update-shopify-from-lfm-scheduler-trigger \
 #   --schedule="*/5 * * * *" \
 #   --uri="https://us-west1-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/sjifh-378705/jobs/update-shopify-from-lfm:run" \

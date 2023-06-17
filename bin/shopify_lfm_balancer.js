@@ -23,7 +23,19 @@ const limitPromise = import('p-limit')
 
 process.env.TZ = 'UTC'
 
-const QTY_BUFFER = 1
+function delay (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function validLFMProducts (lfm) {
+  await lfm.login()
+  const minPrice = config.get('shopify_price_min')
+  const products = await lfm.getAvailProducts()
+  _.remove(products, (item) => {
+    return item.customerPrice < minPrice
+  })
+  return products
+}
 
 // Set up the command-line interface using yargs
 const argv = require('yargs/yargs')(hideBin(process.argv))
@@ -81,7 +93,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
   if (lfmProd.productFrozen) tags += ', FROZEN'
   if (lfmProd.productCold) tags += ', CHILL'
 
-  let qty = parseInt(lfmProd.prAvail) - QTY_BUFFER
+  let qty = parseInt(lfmProd.prAvail) - config.get('shopify_qty_buffer')
   if (qty < 0) qty = 0
   /*  NOTES
         - we need to make sure this is flagged as active
@@ -104,9 +116,9 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
         price: lfmProd.customerPrice,
         sku: `puid_${lfmProd.puId}`,
         // what about taxable?
-        // taxable: false,
+        taxable: false,
         inventory_quantity: qty,
-        requires_shipping: false,
+        // requires_shipping: false,
         inventory_management: 'shopify'
         // what about weight unit?!
         // weight: _.isEmpty(lfmProd.puWeight) ? null : parseFloat(lfmProd.puWeight),
@@ -126,8 +138,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
 
   switch (argv._[0]) {
     case 'products':
-      await lfm.login()
-      const lfmResult = await lfm.getAvailProducts()
+      const lfmResult = await validLFMProducts(lfm)
       json = JSON.stringify(lfmResult)
       // prettyJSON = JSON.stringify(lfmProducts, null, 2);
       break
@@ -140,7 +151,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
       break
     case 'update-shopify':
       await lfm.login()
-      const lfmProducts = await lfm.getAvailProducts()
+      const lfmProducts = await validLFMProducts(lfm)
       if (lfmProducts.length < 1) {
         logger.verbose('no LFM products visible; archiving all shopify products')
         await shopify.archiveAllProducts()
@@ -155,7 +166,6 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
           return result
         }, new Map())
 
-
         const reviewedPuIds = new Set()
         const numProducts = lfmProducts.length
         logger.verbose(`creating or updating ${numProducts} shopify products`)
@@ -169,12 +179,23 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
               logger.debug(`${i + 1}/${numProducts}: updating shopify product id ${existingShopifyProduct.id} (and img? ${!skipImgDownload})`)
               const shopifyProduct = await createShopifyProductStruct(lfmProd, skipImgDownload)
               shopifyProduct.id = existingShopifyProduct.id
+              // await shopify.updateProduct(shopifyProduct)
+              // console.log('-----------')
+              // console.log(shopify.client.callLimits)
+              // const ratioRemaining = shopify.client.callLimits.remaining/shopify.client.callLimits.max
+              // if(ratioRemaining < 0.50){
+              //   console.log('delaying!!!!')
+              //   delay(500)
+              // }
+              // await delay(500)
+              // await shopify.updateProduct(shopifyProduct)
               return shopify.updateProduct(shopifyProduct)
               // return shopify.client.product.update(existingShopifyProduct.id, shopifyProduct)
             } else {
               // insert!
               logger.debug(`${i + 1}/${numProducts}: inserting new shopify product`)
               const shopifyProduct = await createShopifyProductStruct(lfmProd)
+              // await shopify.createProduct(shopifyProduct)
               return shopify.createProduct(shopifyProduct)
               // return shopify.client.product.create(shopifyProduct);
             }
@@ -190,7 +211,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
         if (missingShopifyProducts.length > 0) {
           logger.verbose(`archiving ${missingShopifyProducts.length} shopify products which are not active on LFM`)
           for (const missingShopifyProduct of missingShopifyProducts) {
-            if(shopify.productIsArchived(missingShopifyProduct)){
+            if (shopify.productIsArchived(missingShopifyProduct)) {
               logger.debug(`shopify product id ${missingShopifyProduct.id}: already archived`)
             } else {
               logger.debug(`archiving shopify product id ${missingShopifyProduct.id}: not active on LFM`)

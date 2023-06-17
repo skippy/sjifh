@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "X-Shopify-Shop-Domain": "provisions-co-op-wholesale.myshopify.com",
+    "Content-Type": "application/json",
+    "X-Shopify-API-Version": "2023-07",
+    "X-Shopify-Webhook-Id": "b5210899-50fa-4d8b-a5ed-63029b7b9836",
+    "X-Shopify-Order-Id": "5028757864626",
+    "X-Shopify-Hmac-SHA256": "AraT/WJ54VwlOUYwvmNBoipXAijCJDw1/uK1E8uRGsU=",
+    "X-Shopify-Triggered-At": "2023-06-16T23:25:57.019577164Z",
+    "X-Shopify-Topic": "orders/edited"
+  },
+  "publish_time": "2023-06-16T23:25:58.655Z",
+  "messageId": "8407794873048928",
+  "message_id": "8407794873048928",
+  "publishTime": "2023-06-16T23:25:58.655Z",
+  "data": "eyJvcmRlcl9lZGl0Ijp7ImlkIjoyOTMxMjIyMTM2MiwiYXBwX2lkIjoxODMwMjc5LCJjcmVhdGVkX2F0IjoiMjAyMy0wNi0xNlQxNjoyNTozNy0wNzowMCIsIm5vdGlmeV9jdXN0b21lciI6ZmFsc2UsIm9yZGVyX2lkIjo1MDI4NzU3ODY0NjI2LCJzdGFmZl9ub3RlIjoiIiwidXNlcl9pZCI6NTU4NjI3NTU0ODIsImxpbmVfaXRlbXMiOnsiYWRkaXRpb25zIjpbXSwicmVtb3ZhbHMiOlt7ImlkIjoxMjYyMjczMTM0NjA5OCwiZGVsdGEiOjF9XX0sImRpc2NvdW50cyI6eyJsaW5lX2l0ZW0iOnsiYWRkaXRpb25zIjpbXX19LCJzaGlwcGluZ19saW5lcyI6eyJhZGRpdGlvbnMiOltdfX19"
+}

@@ -1,0 +1,364 @@
+{
+  "payment_terms": {
+    "due_in_days": null,
+    "payment_schedules": [
+      {
+        "completed_at": null,
+        "currency": "USD",
+        "issued_at": null,
+        "due_at": null,
+        "id": 11198824626,
+        "created_at": "2023-06-16T14:23:22-07:00",
+        "amount": "100.80",
+        "updated_at": "2023-06-16T14:23:22-07:00"
+      }
+    ],
+    "id": 9928769714,
+    "updated_at": "2023-06-16T14:23:22-07:00",
+    "created_at": "2023-06-16T14:23:22-07:00",
+    "payment_terms_type": "receipt",
+    "payment_terms_name": "Due on receipt"
+  },
+  "current_total_tax": "0.00",
+  "tags": "",
+  "current_total_price": "100.80",
+  "fulfillments": [],
+  "cart_token": null,
+  "checkout_token": "ec2aca615f6e9d1ab4e2ed3e00101ce2",
+  "processed_at": "2023-06-16T14:23:21-07:00",
+  "cancel_reason": null,
+  "created_at": "2023-06-16T14:23:22-07:00",
+  "current_total_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "100.80"
+    },
+    "shop_money": {
+      "amount": "100.80",
+      "currency_code": "USD"
+    }
+  },
+  "note": null,
+  "phone": null,
+  "landing_site_ref": null,
+  "current_subtotal_price": "100.80",
+  "token": "e17544fa351cf271677aca9b85327842",
+  "merchant_of_record_app_id": null,
+  "total_outstanding": "100.80",
+  "presentment_currency": "USD",
+  "payment_gateway_names": [
+    "I Have a Credit Card on File"
+  ],
+  "total_tax_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "client_details": {
+    "accept_language": "en-US,en;q=0.9",
+    "browser_width": null,
+    "browser_height": null,
+    "session_hash": null,
+    "browser_ip": "207.32.165.103",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+  },
+  "email": "adam.greene@gmail.com",
+  "user_id": 55862755482,
+  "referring_site": null,
+  "browser_ip": "207.32.165.103",
+  "subtotal_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "100.80"
+    },
+    "shop_money": {
+      "amount": "100.80",
+      "currency_code": "USD"
+    }
+  },
+  "current_total_duties_set": null,
+  "order_status_url": "https://provisionswholesale.coop/41111748762/orders/e17544fa351cf271677aca9b85327842/authenticate?key=a7b9711c8e1b952e8b0a3bee4b906fd1",
+  "id": 5028674666674,
+  "current_total_additional_fees_set": null,
+  "fulfillment_status": null,
+  "total_line_items_price": "100.80",
+  "source_name": "shopify_draft_order",
+  "subtotal_price": "100.80",
+  "customer": {
+    "id": 6649863635122,
+    "currency": "USD",
+    "updated_at": "2023-06-16T14:23:22-07:00",
+    "marketing_opt_in_level": null,
+    "accepts_marketing_updated_at": "2023-06-15T11:04:00-07:00",
+    "tax_exempt": false,
+    "admin_graphql_api_id": "gid://shopify/Customer/6649863635122",
+    "default_address": {
+      "country": "United States",
+      "zip": "98250",
+      "customer_id": 6649863635122,
+      "country_code": "US",
+      "province": "Washington",
+      "company": "Oak Knoll LLC",
+      "name": "Adam Greene",
+      "phone": "(503) 784-2104",
+      "default": true,
+      "address2": null,
+      "province_code": "WA",
+      "id": 7998416355506,
+      "address1": "1585 Douglas Rd",
+      "city": "Friday Harbor",
+      "country_name": "United States",
+      "last_name": "Greene",
+      "first_name": "Adam"
+    },
+    "sms_marketing_consent": null,
+    "tags": "Business 4, Orcas, SJIFH Pickup",
+    "multipass_identifier": null,
+    "tax_exemptions": [],
+    "state": "enabled",
+    "created_at": "2023-06-15T11:04:00-07:00",
+    "phone": null,
+    "note": "",
+    "email_marketing_consent": {
+      "state": "not_subscribed",
+      "consent_updated_at": null,
+      "opt_in_level": "single_opt_in"
+    },
+    "last_name": "Greene",
+    "verified_email": true,
+    "first_name": "Adam",
+    "email": "adam.greene@gmail.com",
+    "accepts_marketing": false
+  },
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "100.80",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "100.80"
+    }
+  },
+  "total_price_set": {
+    "presentment_money": {
+      "amount": "100.80",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "100.80"
+    }
+  },
+  "landing_site": null,
+  "total_discounts": "0.00",
+  "current_total_tax_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "current_total_discounts_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "location_id": null,
+  "financial_status": "pending",
+  "refunds": [],
+  "contact_email": "adam.greene@gmail.com",
+  "tax_exempt": false,
+  "estimated_taxes": false,
+  "current_total_discounts": "0.00",
+  "billing_address": {
+    "phone": "(503) 784-2104",
+    "zip": "98250",
+    "country": "United States",
+    "longitude": -123.042906,
+    "company": "Oak Knoll LLC",
+    "country_code": "US",
+    "address1": "1585 Douglas Rd",
+    "province": "Washington",
+    "first_name": "Adam",
+    "city": "Friday Harbor",
+    "last_name": "Greene",
+    "address2": null,
+    "name": "Adam Greene",
+    "province_code": "WA",
+    "latitude": 48.501762
+  },
+  "tax_lines": [],
+  "test": false,
+  "original_total_duties_set": null,
+  "cancelled_at": null,
+  "note_attributes": [],
+  "discount_codes": [],
+  "shipping_address": {
+    "country": "United States",
+    "country_code": "US",
+    "zip": "98250",
+    "province_code": "WA",
+    "city": "Friday Harbor",
+    "address2": null,
+    "latitude": null,
+    "name": "Adam Greene",
+    "address1": "1585 Douglas Rd",
+    "province": "Washington",
+    "first_name": "Adam",
+    "last_name": "Greene",
+    "longitude": null,
+    "phone": "(503) 784-2104",
+    "company": "Oak Knoll LLC"
+  },
+  "closed_at": null,
+  "taxes_included": false,
+  "shipping_lines": [],
+  "order_number": 7815,
+  "discount_applications": [],
+  "checkout_id": 32371835732146,
+  "total_shipping_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "po_number": null,
+  "name": "#7815",
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "total_tax": "0.00",
+  "currency": "USD",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "100.80",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "100.80"
+    }
+  },
+  "buyer_accepts_marketing": false,
+  "source_identifier": "62af52776a5d2a39f05f10dfc55c9f41",
+  "reference": "62af52776a5d2a39f05f10dfc55c9f41",
+  "total_tip_received": "0.00",
+  "device_id": null,
+  "total_weight": 0,
+  "confirmed": true,
+  "line_items": [
+    {
+      "sku": "puid_13485",
+      "discount_allocations": [],
+      "variant_inventory_management": null,
+      "fulfillment_service": "manual",
+      "title": "Mutton Stew (10-lbs box)",
+      "fulfillment_status": null,
+      "variant_id": null,
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "0.00",
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "rate": 0.065,
+          "title": "Washington State Tax"
+        },
+        {
+          "price_set": {
+            "presentment_money": {
+              "currency_code": "USD",
+              "amount": "0.00"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "price": "0.00",
+          "rate": 0.018,
+          "channel_liable": false,
+          "title": "San Juan County Tax"
+        }
+      ],
+      "gift_card": false,
+      "price_set": {
+        "shop_money": {
+          "amount": "100.80",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "100.80"
+        }
+      },
+      "variant_title": null,
+      "duties": [],
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        }
+      },
+      "vendor": "",
+      "total_discount": "0.00",
+      "name": "Mutton Stew (10-lbs box)",
+      "requires_shipping": true,
+      "grams": 0,
+      "price": "100.80",
+      "admin_graphql_api_id": "gid://shopify/LineItem/12622551220402",
+      "fulfillable_quantity": 1,
+      "quantity": 1,
+      "product_exists": false,
+      "product_id": null,
+      "id": 12622551220402,
+      "properties": [],
+      "taxable": false
+    }
+  ],
+  "number": 6815,
+  "source_url": null,
+  "customer_locale": "en",
+  "admin_graphql_api_id": "gid://shopify/Order/5028674666674",
+  "app_id": 1354745,
+  "updated_at": "2023-06-16T14:23:23-07:00",
+  "total_price": "100.80",
+  "original_total_additional_fees_set": null
+}

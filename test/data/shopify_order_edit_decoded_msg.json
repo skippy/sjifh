@@ -1,0 +1,28 @@
+{
+  "order_edit": {
+    "order_id": 5028757864626,
+    "staff_note": "",
+    "notify_customer": false,
+    "id": 29312221362,
+    "user_id": 55862755482,
+    "app_id": 1830279,
+    "created_at": "2023-06-16T16:25:37-07:00",
+    "discounts": {
+      "line_item": {
+        "additions": []
+      }
+    },
+    "line_items": {
+      "removals": [
+        {
+          "id": 12622731346098,
+          "delta": 1
+        }
+      ],
+      "additions": []
+    },
+    "shipping_lines": {
+      "additions": []
+    }
+  }
+}
