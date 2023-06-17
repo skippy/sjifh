@@ -27,7 +27,7 @@
     "node": ">=20.x"
   },
   "dependencies": {
-    "@shopify/shopify-api": "^6.2.0",
+    "@shopify/shopify-api": "^7.3.1",
     "convict": "^6.2.4",
     "convict-format-with-validator": "^6.2.0",
     "csv-parser": "^3.0.0",
