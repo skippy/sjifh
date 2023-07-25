@@ -42,7 +42,7 @@
     "playwright": "^1.36.1",
     "read-last-lines": "^1.8.0",
     "shopify-api-node": "^3.12.5",
-    "winston": "^3.8.2",
+    "winston": "^3.10.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
