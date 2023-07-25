@@ -233,7 +233,10 @@ class LFM {
       }
     })
     const desiredKeys = ['category', 'subcategory', 'prName', 'producer', 'prUnit', 'prAvail', 'prPrice', 'customerPrice', 'customerPricePerLbs', 'puWeight', 'productId', 'puId', 'fpId']
-    const products = rawProducts.map(obj => _.pick(obj, desiredKeys))
+    let products = rawProducts.map(obj => _.pick(obj, desiredKeys))
+    products = _.map(products, obj => {
+      return _.mapValues(obj, value => (typeof value === 'string' ? value.trim() : value));
+    });
     return products
   }
 
@@ -252,8 +255,8 @@ class LFM {
       const productImg = variableSet(data.fpImage) && data.fpImage.match(/^http/i) ? data.fpImage : data.fpDefaultImage
       return {
         productImgUrl: productImg,
-        productTagline: data.fpTag,
-        productDesc: data.fpDesc,
+        productTagline: data.fpTag.trim(),
+        productDesc: data.fpDesc.trim(),
         productFrozen: data.prFrozen,
         productCold: data.prCold,
         units: _.keyBy(data.units, 'puId'),

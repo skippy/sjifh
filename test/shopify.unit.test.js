@@ -17,6 +17,7 @@ const sandbox = sinon.createSandbox()
 
 const Shopify = require('../src/shopify')
 
+let sampleCleanLFMProducts = require('./data/lfm_cleaned_products.json')
 let sampleShopifyProducts = require('./data/shopify_products.json')
 let sampleShopifyLocations = require('./data/shopify_locations.json')
 
@@ -182,80 +183,177 @@ describe('Shopify Unit Tests', () => {
     })
   })
 
+  describe('createProductStructFromLFM', () => {
+    let cleanLFMProducts
 
-  describe('createProductStruct', () => {
-    let productStruct
-    beforeEach(async () => {
-      productStruct = await instance.createProductStruct('my title', 'product type', ['tag1', 'tag2'], 'my vendor', '<p>my desc</p>', 'sku_123445', null, 20.20, 2)
+    beforeEach(() => {
+      cleanLFMProducts = _.cloneDeep( sampleCleanLFMProducts )
+    })
+
+    describe('titles', async () => {
+      it('the title should start with product name', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 6609])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.match(new RegExp(`^${lfmProduct.prName}`))
+      })
+
+      it('the title should end with [SJIFH]', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 6609])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.match(/\[SJIFH\]$/)
+      })
+
+      it('the title should contain the producer name', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 6609])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.match(new RegExp(lfmProduct.producer))
+      })
+
+      it('should have an expected title with a box product unit', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 6609])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.equal('Chard, Rainbow (5 lb) Watmough Bay Farm [SJIFH]')
+      })
+
+      it('should have an expected title with a lbs range', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 5954])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.equal("Beef Steak, New York (0.50-0.60) Sundstrom's Little S [SJIFH]")
+      })
+
+      it('should have an expected title with a non-standard unit size', async () => {
+        const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+        const output = await instance.createProductStructFromLFM(lfmProduct, true)
+        expect(output.title).to.equal("Bouquet, Cut Flowers (Medium Bouquet) Baba Yaga Farm [SJIFH]")
+      })
+
+    })
+
+    it('should set the status to active', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.status).to.equal('active')
     })
 
 
-    it('create an expected Shopify product structure', async () => {
-      const expectedProductKeys = ['title', 'status', 'product_type', 'tags', 'vendor', 'bodyHtml', 'sku', 'variants']
-      expect(_.keys(productStruct).sort()).to.eql(expectedProductKeys.sort())
-      // const expectedProductStruct = {
-      //   title: 'my title',
-      //   status: 'active',
-      //   product_type: 'product type',
-      //   tags: [ 'TAG1', 'TAG2' ],
-      //   vendor: 'vendor',
-      //   bodyHtml: '<p>my desc</p>',
-      //   sku: 'sku_123445',
-      //   variants: [
-      //     {
-      //       price: 20.2,
-      //       sku: 'sku_123445',
-      //       taxable: false,
-      //       inventory_quantity: 2,
-      //       inventory_management: 'shopify'
-      //     }
-      //   ]
-      // }
-      // expect(productStruct).to.eql(expectedProductStruct)
+    it('should set the product_type to the LFM category and sub category', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.product_type).to.equal(`${lfmProduct.category} / ${lfmProduct.subcategory}`)
     })
 
-    it('upper cases the tags', async () => {
-      expect(productStruct.tags).to.eql(['TAG1', 'TAG2'])
+    it('should set SJIFH as a tag', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.tags).to.include('SJIFH')
     })
 
-    it('sets the title', async () => {
-      expect(productStruct.title).to.eql('my title')
+    it('should set SAN JUAN ISLANDS FOOD HUB as a tag', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.tags).to.include('SAN JUAN ISLANDS FOOD HUB')
     })
 
-    it('sets the status to active', async () => {
-      expect(productStruct.status).to.eql('active')
+    it('should set category as a tag', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.tags).to.include(lfmProduct.category.toUpperCase())
     })
 
-    it('sets the product_type', async () => {
-      expect(productStruct.product_type).to.eql('product type')
+    it('should set subCategory as a tag', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.tags).to.include(lfmProduct.subcategory.toUpperCase())
     })
 
-    it('sets the vendor', async () => {
-      expect(productStruct.vendor).to.eql('my vendor')
+    it('should set the vendor as the producer', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.vendor).to.equal(lfmProduct.producer)
     })
 
-    it('sets the bodyHtml', async () => {
-      expect(productStruct.bodyHtml).to.eql('<p>my desc</p>')
+    it('should set the sku as the LFM puid', async () => {
+      const lfmProduct = _.find(cleanLFMProducts, ['puId', 14582])
+      const output = await instance.createProductStructFromLFM(lfmProduct, true)
+      expect(output.sku).to.equal(`puid_${lfmProduct.puId}`)
     })
-
-    it('sets the sku', async () => {
-      expect(productStruct.sku).to.eql('sku_123445')
-    })
-
-    it('sets the variants sub-structure', async () => {
-      expect(productStruct.variants).to.eql([{
-        price: 20.2,
-        sku: 'sku_123445',
-        taxable: false,
-        inventory_quantity: 2,
-        inventory_management: 'shopify'
-      }])
-    })
-
-
-
 
   })
+
+
+  // describe('createProductStruct', () => {
+  //   let productStruct
+  //   beforeEach(async () => {
+  //     productStruct = await instance.createProductStruct('my title', 'product type', ['tag1', 'tag2'], 'my vendor', '<p>my desc</p>', 'sku_123445', null, 20.20, 2)
+  //   })
+
+
+  //   it('create an expected Shopify product structure', async () => {
+  //     const expectedProductKeys = ['title', 'status', 'product_type', 'tags', 'vendor', 'bodyHtml', 'sku', 'variants']
+  //     expect(_.keys(productStruct).sort()).to.eql(expectedProductKeys.sort())
+  //     // const expectedProductStruct = {
+  //     //   title: 'my title',
+  //     //   status: 'active',
+  //     //   product_type: 'product type',
+  //     //   tags: [ 'TAG1', 'TAG2' ],
+  //     //   vendor: 'vendor',
+  //     //   bodyHtml: '<p>my desc</p>',
+  //     //   sku: 'sku_123445',
+  //     //   variants: [
+  //     //     {
+  //     //       price: 20.2,
+  //     //       sku: 'sku_123445',
+  //     //       taxable: false,
+  //     //       inventory_quantity: 2,
+  //     //       inventory_management: 'shopify'
+  //     //     }
+  //     //   ]
+  //     // }
+  //     // expect(productStruct).to.eql(expectedProductStruct)
+  //   })
+
+  //   it('upper cases the tags', async () => {
+  //     expect(productStruct.tags).to.eql(['TAG1', 'TAG2'])
+  //   })
+
+  //   it('sets the title', async () => {
+  //     expect(productStruct.title).to.eql('my title')
+  //   })
+
+  //   it('sets the status to active', async () => {
+  //     expect(productStruct.status).to.eql('active')
+  //   })
+
+  //   it('sets the product_type', async () => {
+  //     expect(productStruct.product_type).to.eql('product type')
+  //   })
+
+  //   it('sets the vendor', async () => {
+  //     expect(productStruct.vendor).to.eql('my vendor')
+  //   })
+
+  //   it('sets the bodyHtml', async () => {
+  //     expect(productStruct.bodyHtml).to.eql('<p>my desc</p>')
+  //   })
+
+  //   it('sets the sku', async () => {
+  //     expect(productStruct.sku).to.eql('sku_123445')
+  //   })
+
+  //   it('sets the variants sub-structure', async () => {
+  //     expect(productStruct.variants).to.eql([{
+  //       price: 20.2,
+  //       sku: 'sku_123445',
+  //       taxable: false,
+  //       inventory_quantity: 2,
+  //       inventory_management: 'shopify'
+  //     }])
+  //   })
+
+
+
+
+  // })
 
 
 })

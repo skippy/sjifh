@@ -129,6 +129,14 @@ describe('LFM Unit Tests', () => {
     	})
 
     })
+
+    it('trims whitespace from the name', () => {
+    	const rawProduct = _.find(rawLFMProducts, ['puId', 5954])
+    	const products = instance._cleanupProducts(rawLFMProducts)
+    	const cleanedProduct = _.find(products, ['puId', 5954])
+    	expect(rawProduct.prName).to.equal('Beef Steak, New York ')
+    	expect(cleanedProduct.prName).to.equal('Beef Steak, New York')
+    })
   })
 
 

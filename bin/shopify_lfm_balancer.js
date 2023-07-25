@@ -12,7 +12,7 @@
 */
 
 const yargs = require('yargs')
-const logger = require(`${process.mainModule.path}/../src/modules/logger`)
+const logger = require('../src/modules/logger')
 const config = require('../src/config.js')
 const _ = require('lodash')
 const fetch = require('node-fetch')
@@ -82,73 +82,6 @@ switch (argv.verbose) {
     logger.level = 'debug'
 }
 
-async function createShopifyProductStruct (lfmProd, skipImg = false) {
-  let base64Image
-  if (!skipImg) {
-    const fetchResponse = await fetch(lfmProd.productImgUrl)
-    const imgBbuffer = await fetchResponse.buffer()
-    base64Image = Buffer.from(imgBbuffer).toString('base64')
-  }
-  let body_html = ''
-  if (!/^\s*$/.test(lfmProd.productTagline)) {
-    body_html += `<p>${lfmProd.productTagline}</p>`
-  }
-  if (!/^\s*$/.test(lfmProd.productDesc)) {
-    body_html += `<p>${lfmProd.productDesc}</p>`
-  }
-    body_html += `<p>Producer: ${lfmProd.producer}</p>`
-  body_html = body_html.replace(/\n/g, '<br>')
-
-  // let tags = `${config.get('shopify_default_product_tags')}, ${lfmProd.category}, ${lfmProd.subcategory}`.toUpperCase()
-  // if (lfmProd.productFrozen) tags += ', FROZEN'
-  // if (lfmProd.productCold) tags += ', CHILL'
-
-  const tags = _.concat(config.get('shopify_default_product_tags'), lfmProd.category, lfmProd.subcategory)
-  _.forEach(tags, (tag, index) => {
-    tags[index] =  tag.toUpperCase();
-  });
-  if (lfmProd.productFrozen) tags.push('FROZEN')
-  if (lfmProd.productCold) tags.push('CHILL')
-
-
-  let qty = parseInt(lfmProd.prAvail) - config.get('shopify_qty_buffer')
-  if (qty < 0) qty = 0
-  /*  NOTES
-        - we need to make sure this is flagged as active
-  */
-  const origPrice = parseFloat(lfmProd.customerPrice)
-  const shopifyProduct = {
-    title: `${lfmProd.prName} (${lfmProd.prUnit}) ${lfmProd.producer} [SJIFH]`,
-    status: 'active',
-    product_type: `${lfmProd.category} / ${lfmProd.subcategory}`,
-    tags: tags,
-    vendor: lfmProd.producer,
-    body_html,
-    sku: `puid_${lfmProd.puId}`,
-    images: [
-      {
-        attachment: base64Image
-      }
-    ],
-    variants: [
-      {
-        price: origPrice + (origPrice * config.get('shopify_markup_add')),
-        sku: `puid_${lfmProd.puId}`,
-        // what about taxable?
-        taxable: false,
-        inventory_quantity: qty,
-        // requires_shipping: false,
-        inventory_management: 'shopify'
-        // what about weight unit?!
-        // weight: _.isEmpty(lfmProd.puWeight) ? null : parseFloat(lfmProd.puWeight),
-      }
-    ]
-  }
-  if (!base64Image) {
-    delete shopifyProduct.images
-  }
-  return shopifyProduct
-}
 
 (async () => {
   let json = ''
@@ -170,7 +103,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
       break
     case 'update-shopify':
       await lfm.login()
-      const lfmProducts = await validLFMProducts(lfm)
+      const lfmProducts = await validLFMProducts(lfm, argv['ignore-closed-period'])
       if (lfmProducts.length < 1) {
         logger.verbose('no LFM products visible; archiving all shopify products')
         await shopify.archiveAllProducts()
@@ -196,7 +129,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
               // modify
               const skipImgDownload = existingShopifyProduct.status === 'active'
               logger.debug(`${i + 1}/${numProducts}: updating shopify product id ${existingShopifyProduct.id} (and img? ${!skipImgDownload})`)
-              const shopifyProduct = await createShopifyProductStruct(lfmProd, skipImgDownload)
+              const shopifyProduct = await shopify.createProductStructFromLFM(lfmProd, skipImgDownload)
               shopifyProduct.id = existingShopifyProduct.id
               // await shopify.updateProduct(shopifyProduct)
               // console.log('-----------')
