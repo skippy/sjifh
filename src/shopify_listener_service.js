@@ -69,6 +69,7 @@ app.post('/', async (req, res) => {
     logger.verbose(`no SJIFH items in Shopify Order ${orderNum}`)
     return res.sendStatus(200)
   }
+    logger.verbose(`SJIFH items in Shopify Order ${orderNum}`)
 
   const docObj = {
     shopify_order_num: orderNum,

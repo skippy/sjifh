@@ -49,11 +49,11 @@ const config = convict({
     required: true,
     env: 'SHOPIFY_SHOP_ORIGIN'
   },
-  shopify_vendor_name: {
-    format: String,
+  shopify_default_product_tags: {
+    format: Array,
     default: null,
     required: true,
-    env: 'SHOPIFY_VENDOR_NAME'
+    env: 'SHOPIFY_DEFAULT_PRODUCT_TAGS'
   },
   shopify_price_min: {
     format: Number,
@@ -64,6 +64,18 @@ const config = convict({
     format: Number,
     default: null,
     env: 'SHOPIFY_QTY_BUFFER'
+  },
+  shopify_markup_add: {
+    format: Number,
+    default: null,
+    description: "What percentage we want to add as a markup, between the LFM and Shopify listed prices",
+    env: 'SHOPIFY_MARKUP_ADD'
+  },
+  shopify_collection_id: {
+    format: Number,
+    default: null,
+    description: "The Collection which is used to find, modify, archive, delete, and create products",
+    env: 'SHOPIFY_COLLECTION_ID'
   },
   firebase_collection_name: {
     format: String,

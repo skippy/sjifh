@@ -55,13 +55,15 @@ class LFM {
   // this returns an array of products:
   //  - only include those products listed as available at the wholesale window
   //  -
-  async getAvailProducts (block) {
+  async getAvailProducts (ignore_closed_period) {
     await this.page.goto(PRODUCTS_AVAIL_URL)
+    // select ONLY wholesale products for now
     await this.page.waitForSelector('#subperiodIds', { state: 'visible' })
     await this.page.locator('select#subperiodIds').click()
     await this.page.waitForSelector('ul#subperiodIds #anchor_subperiodIds', { state: 'visible' })
-    // select ONLY wholesale products for now
     await this.page.locator('ul#subperiodIds #anchor_subperiodIds li:nth-child(2)').click()
+    // show wholesale pricing
+    await this.page.selectOption('select#priceLevelId', { label: 'Wholesale' })
 
     let productRequest
     this.page.on('request', (request) => {
@@ -74,8 +76,10 @@ class LFM {
       }
     })
 
-    // select ONLY wholesale products for now
-    await this.page.selectOption('select#priceLevelId', { label: 'Wholesale' })
+    // do NOT show hidden prices
+    // await this.page.locator(`.admin-availability-button-group button.plain-dropdown-button:visible`).click()
+    await this.page.locator(`.admin-availability-button-group button.plain-dropdown-button:visible:near(:text("Price Level Filters"))`).click()
+    await this.page.locator('label:has-text("Show Hidden Price Levels"):visible').click()
 
     // Wait for the specific XHR request to set productRequest
     // this looks janky but is more robust than using page.waitForRequest,
@@ -85,9 +89,13 @@ class LFM {
     }
     const prodResponse = await (await productRequest.response()).json()
     const requestParams = this._urlParams(productRequest.url())
-    if (!this._isPeriodOpen(requestParams.periodId, requestParams.subperiodIds)) {
-      logger.verbose('period is now closed to ordering')
-      return []
+    if(!ignore_closed_period){
+      if (!await this._isPeriodOpen(requestParams.periodId, requestParams.subperiodIds)) {
+        logger.verbose('period is now closed to ordering')
+        return []
+      }else{
+        logger.debug("period is open!")
+      }
     }
 
     if (prodResponse.readOnly) {
@@ -95,21 +103,7 @@ class LFM {
       return []
     }
     const rawProducts = prodResponse.items
-    _.remove(rawProducts, (item) => {
-      return (item.prAvail === 0 && item.prUnitAvail === -1) ||
-      item.puHide === true || // || item.listed === false
-      item.prQty === 0 && item.prAvail === 0 && item.prSold === 0 ||
-      item.producer.match(/ON VACATION/i) !== null
-    })
-
-    // modifyPricing
-    _.each(rawProducts, (item) => {
-      if (variableSet(item.puWeight)) {
-        item.customerPrice *= parseInt(item.puWeight)
-      }
-    })
-    const desiredKeys = ['category', 'subcategory', 'prName', 'producer', 'prUnit', 'prAvail', 'prPrice', 'customerPrice', 'puWeight', 'productId', 'puId', 'fpId']
-    const products = rawProducts.map(obj => _.pick(obj, desiredKeys))
+    const products    = this._cleanupProducts(rawProducts)
     logger.verbose(`retrieved LFM products: ${products.length}`)
 
     // if(!enrich) return products
@@ -191,6 +185,8 @@ class LFM {
   }
 
   async _isPeriodOpen (periodId, subPeriodId) {
+    //NOTE: perhaps hit https://sanjuanislandsfoodhub.localfoodmarketplace.com/Products and
+    // scan for 'Get ready to shop'?  ugh
     const periodData = await this.page.evaluate(async (url) => {
       const fetchResponse = await fetch(url)
       return await fetchResponse.json()
@@ -200,6 +196,7 @@ class LFM {
     const today = new Date()
     const startDate = new Date(`${subPeriodData.firstOrderDay} ${subPeriodData.firstOrderTime}`)
     const endDate = new Date(`${subPeriodData.orderCutoffDay} ${subPeriodData.orderCutoffTime}`)
+    logger.debug(`_isPeriodOpen: id: ${periodId}, subId: ${subPeriodId} - ${startDate.toISOString()} <-> ${endDate.toISOString()} --- ${today.toISOString()} -- ${today >= startDate && today <= endDate}`)
     return (today >= startDate && today <= endDate)
   }
 
@@ -209,6 +206,35 @@ class LFM {
       _.map(urlParams.split('&'), (param) => param.split('='))
     )
     return params
+  }
+
+  _cleanupProducts (rawProducts) {
+    _.remove(rawProducts, (item) => {
+      //NOTE: not sure what this line item does or why it is here
+      // return (item.prAvail === 0 && item.prUnitAvail === -1) ||
+      return item.puHide === true || // || item.listed === false
+      // remove items which have no items listed but are still active
+      item.prQty === 0 && item.prAvail === 0 && item.prSold === 0 ||
+      item.producer.match(/ON VACATION/i) !== null
+    })
+
+    // modifyPricing
+    _.each(rawProducts, (item) => {
+      item.prPrice = parseFloat(item.prPrice)
+      item.customerPrice = parseFloat(item.customerPrice)
+      if (variableSet(item.puWeight)) {
+        item.customerPricePerLbs = item.customerPrice
+        item.puWeight       = parseFloat(item.puWeight)
+        item.customerPrice *= item.puWeight
+        item.customerPrice  = _.round(item.customerPrice, 2);
+      }else{
+        item.puWeight            = undefined
+        item.customerPricePerLbs = undefined
+      }
+    })
+    const desiredKeys = ['category', 'subcategory', 'prName', 'producer', 'prUnit', 'prAvail', 'prPrice', 'customerPrice', 'customerPricePerLbs', 'puWeight', 'productId', 'puId', 'fpId']
+    const products = rawProducts.map(obj => _.pick(obj, desiredKeys))
+    return products
   }
 
   async _enrichProducts (products) {
@@ -222,7 +248,8 @@ class LFM {
         const fetchResponse = await fetch(url)
         return await fetchResponse.json()
       }, productInfo)
-      const productImg = variableSet(data.fpImage) ? data.fpImage : data.fpDefaultImage
+      //if the img isn't set, fpImage returns an invlaid url that is, oddly, blob:https://app.localfoodconnect.com/fc51338e-ca0f-40c9-969b-bf27b19f8b5c
+      const productImg = variableSet(data.fpImage) && data.fpImage.match(/^http/i) ? data.fpImage : data.fpDefaultImage
       return {
         productImgUrl: productImg,
         productTagline: data.fpTag,
@@ -236,7 +263,7 @@ class LFM {
 
     const uniqueFpIDs = _.uniqBy(products, obj => obj.fpId).map(obj => obj.fpId)
     const promises = uniqueFpIDs.map(fpId => limiter(() => enrichItem(fpId)))
-    try {
+    // try {
       const enrichedData = await Promise.all(promises)
       const enrichedHash = _.keyBy(enrichedData, 'fpId')
       for (const prod of products) {
@@ -250,9 +277,9 @@ class LFM {
           prod.puWeight = enrichedProdUnit.puWeight
         }
       }
-    } catch (error) {
-      console.error('Error:', error)
-    }
+    // } catch (error) {
+    //   console.error('Error:', error)
+    // }
     return products
   }
 

@@ -27,12 +27,16 @@ function delay (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-async function validLFMProducts (lfm) {
+async function validLFMProducts (lfm, ignore_closed_period) {
   await lfm.login()
   const minPrice = config.get('shopify_price_min')
-  const products = await lfm.getAvailProducts()
+  const products = await lfm.getAvailProducts(ignore_closed_period)
   _.remove(products, (item) => {
-    return item.customerPrice < minPrice
+    if (item.customerPrice < minPrice){
+      logger.verbose(`removing item because below min price: ${item.puId} (${item.customerPrice} < ${minPrice}`)
+      return true
+    }
+    return false
   })
   return products
 }
@@ -47,6 +51,11 @@ const argv = require('yargs/yargs')(hideBin(process.argv))
   .command('archive-shopify', '# archive all products from Shopify')
   .option('headful', {
     description: 'run in headful mode',
+    type: 'boolean',
+    default: false
+  })
+  .option('ignore-closed-period', {
+    description: 'ignore whether the products are from a closed period or not',
     type: 'boolean',
     default: false
   })
@@ -87,23 +96,33 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
   if (!/^\s*$/.test(lfmProd.productDesc)) {
     body_html += `<p>${lfmProd.productDesc}</p>`
   }
+    body_html += `<p>Producer: ${lfmProd.producer}</p>`
   body_html = body_html.replace(/\n/g, '<br>')
 
-  let tags = `SJIFH, ${lfmProd.category}, ${lfmProd.subcategory}, ${lfmProd.producer}`.toUpperCase()
-  if (lfmProd.productFrozen) tags += ', FROZEN'
-  if (lfmProd.productCold) tags += ', CHILL'
+  // let tags = `${config.get('shopify_default_product_tags')}, ${lfmProd.category}, ${lfmProd.subcategory}`.toUpperCase()
+  // if (lfmProd.productFrozen) tags += ', FROZEN'
+  // if (lfmProd.productCold) tags += ', CHILL'
+
+  const tags = _.concat(config.get('shopify_default_product_tags'), lfmProd.category, lfmProd.subcategory)
+  _.forEach(tags, (tag, index) => {
+    tags[index] =  tag.toUpperCase();
+  });
+  if (lfmProd.productFrozen) tags.push('FROZEN')
+  if (lfmProd.productCold) tags.push('CHILL')
+
 
   let qty = parseInt(lfmProd.prAvail) - config.get('shopify_qty_buffer')
   if (qty < 0) qty = 0
   /*  NOTES
         - we need to make sure this is flagged as active
   */
+  const origPrice = parseFloat(lfmProd.customerPrice)
   const shopifyProduct = {
-    title: `${lfmProd.prName} (${lfmProd.prUnit})`,
+    title: `${lfmProd.prName} (${lfmProd.prUnit}) ${lfmProd.producer} [SJIFH]`,
     status: 'active',
     product_type: `${lfmProd.category} / ${lfmProd.subcategory}`,
-    tags,
-    vendor: config.get('shopify_vendor_name'),
+    tags: tags,
+    vendor: lfmProd.producer,
     body_html,
     sku: `puid_${lfmProd.puId}`,
     images: [
@@ -113,7 +132,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
     ],
     variants: [
       {
-        price: lfmProd.customerPrice,
+        price: origPrice + (origPrice * config.get('shopify_markup_add')),
         sku: `puid_${lfmProd.puId}`,
         // what about taxable?
         taxable: false,
@@ -138,7 +157,7 @@ async function createShopifyProductStruct (lfmProd, skipImg = false) {
 
   switch (argv._[0]) {
     case 'products':
-      const lfmResult = await validLFMProducts(lfm)
+      const lfmResult = await validLFMProducts(lfm, argv['ignore-closed-period'])
       json = JSON.stringify(lfmResult)
       // prettyJSON = JSON.stringify(lfmProducts, null, 2);
       break

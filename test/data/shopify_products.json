@@ -38,8 +38,8 @@
         "weight": 0,
         "weight_unit": "lb",
         "inventory_item_id": 45056097452210,
-        "inventory_quantity": 0,
-        "old_inventory_quantity": 0,
+        "inventory_quantity": 2,
+        "old_inventory_quantity": 2,
         "requires_shipping": false,
         "admin_graphql_api_id": "gid://shopify/ProductVariant/43114457596082"
       }

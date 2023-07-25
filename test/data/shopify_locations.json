@@ -1,0 +1,23 @@
+[
+  {
+    "id": 48232792218,
+    "name": "Orcas Food Co-op",
+    "address1": "138 North Beach Road",
+    "address2": "",
+    "city": "Eastsound",
+    "zip": "98245",
+    "province": "WA",
+    "country": "US",
+    "phone": "+13603762009",
+    "created_at": "2020-06-14T18:48:09-07:00",
+    "updated_at": "2020-08-20T21:52:58-07:00",
+    "country_code": "US",
+    "country_name": "United States",
+    "province_code": "WA",
+    "legacy": false,
+    "active": true,
+    "admin_graphql_api_id": "gid://shopify/Location/48232792218",
+    "localized_country_name": "United States",
+    "localized_province_name": "Washington"
+  }
+]

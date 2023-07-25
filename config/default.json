@@ -1,9 +1,11 @@
 {
 	"log_level": "debug",
 	"shopify_shop_origin": "provisions-co-op-wholesale",
-	"shopify_vendor_name": "San Juan Islands Food Hub",
-	"shopify_price_min": 30.0,
-	"shopify_qty_buffer": 1,
+	"shopify_default_product_tags": ["SJIFH", "San Juan Islands Food Hub"],
+	"shopify_price_min": 16.0,
+	"shopify_qty_buffer": 0,
+	"shopify_markup_add": 0.06,
+	"shopify_collection_id": 294883786930,
 	"firebase_collection_name": "sjifh-shopify-orders",
 	"google_cloud_project": "sjifh-378705",
 	"gcp_pubsub_address": "pubsub://sjifh-378705:Orcas-coop-provisions-events"
