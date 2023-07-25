@@ -2,6 +2,7 @@
 	"log_level": "debug",
 	"shopify_shop_origin": "provisions-co-op-wholesale",
 	"shopify_default_product_tags": ["SJIFH", "San Juan Islands Food Hub"],
+	"shopify_product_title_append_txt": "[SJIFH]",
 	"shopify_price_min": 16.0,
 	"shopify_qty_buffer": 0,
 	"shopify_markup_add": 0.06,

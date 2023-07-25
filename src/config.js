@@ -55,6 +55,12 @@ const config = convict({
     required: true,
     env: 'SHOPIFY_DEFAULT_PRODUCT_TAGS'
   },
+  shopify_product_title_append_txt: {
+    format: String,
+    default: null,
+    required: true,
+    env: 'SHOPIFY_PRODUCT_TITLE_APPEND_TXT'
+  },
   shopify_price_min: {
     format: Number,
     default: null,

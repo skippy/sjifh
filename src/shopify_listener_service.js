@@ -48,28 +48,14 @@ app.post('/', async (req, res) => {
   //   orderData = await shopify.client.order.get(orderData.order_edit.order_id)
   // }
   const orderNum = orderData.order_number
-  const lineItems = orderData.line_items.filter(item => item.vendor === 'San Juan Islands Food Hub')
-  orderItems = lineItems.map(item => ({
-    sku: item.sku,
-    lfm_puid: item.sku.split('puid_')[1],
-    item_price: item.price,
-    shopify_line_item_id: item.id,
-    shopify_product_id: item.product_id,
-    shopify_variant_id: item.variant_id,
-    title: item.title,
-    // use this isntead of qty; qty is what was asked for,
-    // but fulfillable_quantity shows actual amt delivered
-    // (taking into account edits and deletions)
-    // orig_qty: item.quantity,
-    qty: item.fulfillable_quantity
-  }))
+  const orderItems = shopify.findCartItems(orderData)
   if (orderItems.length < 1) {
     // no SJIFH items!  lets skip
     // FIXME: what if they were removed from the cart?
     logger.verbose(`no SJIFH items in Shopify Order ${orderNum}`)
     return res.sendStatus(200)
   }
-    logger.verbose(`SJIFH items in Shopify Order ${orderNum}`)
+  logger.verbose(`SJIFH items in Shopify Order ${orderNum}`)
 
   const docObj = {
     shopify_order_num: orderNum,

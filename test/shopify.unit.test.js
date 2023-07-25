@@ -281,6 +281,79 @@ describe('Shopify Unit Tests', () => {
   })
 
 
+  describe('findCartItems', () => {
+    let sampleCreateOrder = require('./data/shopify_order_create_decoded_msg.json')
+
+    it('should find LFM items', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems).to.have.lengthOf(2)
+      expect(foundItems[0].sku).to.equal('puid_6200')
+      expect(foundItems[1].sku).to.equal('puid_6609')
+    })
+
+    it('should contain sku in the expected format', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('sku')
+      expect(foundItems[0].sku).to.match(/^puid_\d+$/)
+      expect(foundItems[1].sku).to.match(/^puid_\d+$/)
+    })
+
+    it('should contain lfm_puid in the expected format', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('lfm_puid')
+      expect(foundItems[1]).to.have.property('lfm_puid')
+      expect(foundItems[0].lfm_puid).to.match(/^\d+$/)
+      expect(`puid_${foundItems[0].lfm_puid}`).to.equal(foundItems[0].sku)
+      expect(foundItems[1].lfm_puid).to.match(/^\d+$/)
+      expect(`puid_${foundItems[1].lfm_puid}`).to.equal(foundItems[1].sku)
+    })
+
+    it('should contain item_price in the expected format', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('item_price')
+      expect(foundItems[0].item_price).to.match(/^\d+\.\d+$/)
+      expect(foundItems[1].item_price).to.match(/^\d+\.\d+$/)
+    })
+
+    it('should contain shopify_line_item_id', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('shopify_line_item_id')
+      expect(foundItems[1]).to.have.property('shopify_line_item_id')
+      expect(foundItems[0].shopify_line_item_id).to.match(/^\d+$/)
+      expect(foundItems[1].shopify_line_item_id).to.match(/^\d+$/)
+    })
+
+    it('should contain shopify_product_id', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('shopify_product_id')
+      expect(foundItems[1]).to.have.property('shopify_product_id')
+      expect(foundItems[0].shopify_product_id).to.match(/^\d+$/)
+      expect(foundItems[1].shopify_product_id).to.match(/^\d+$/)
+    })
+
+    it('should contain shopify_variant_id', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('shopify_variant_id')
+      expect(foundItems[1]).to.have.property('shopify_variant_id')
+      expect(foundItems[0].shopify_variant_id).to.match(/^\d+$/)
+      expect(foundItems[1].shopify_variant_id).to.match(/^\d+$/)
+    })
+
+    it('should contain qty', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('qty')
+      expect(foundItems[1]).to.have.property('qty')
+      expect(foundItems[0].qty).to.match(/^\d+$/)
+      expect(foundItems[1].qty).to.match(/^\d+$/)
+    })
+
+    it('should contain title', () => {
+      const foundItems = instance.findCartItems(sampleCreateOrder)
+      expect(foundItems[0]).to.have.property('title')
+      expect(foundItems[1]).to.have.property('title')
+    })
+  })
+
   // describe('createProductStruct', () => {
   //   let productStruct
   //   beforeEach(async () => {

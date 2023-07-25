@@ -231,12 +231,14 @@ class Shopify {
     */
     const origPrice = parseFloat(lfmProd.customerPrice)
     const shopifyProduct = {
-      title: `${lfmProd.prName} (${lfmProd.prUnit}) ${lfmProd.producer} [SJIFH]`,
+      title: `${lfmProd.prName} (${lfmProd.prUnit}) ${lfmProd.producer} ${config.get('shopify_product_title_append_txt')}`.trim().replace(/\s+/g,' '),
       status: 'active',
       product_type: `${lfmProd.category} / ${lfmProd.subcategory}`,
       tags: tags,
       vendor: lfmProd.producer,
       body_html,
+      //NOTE: do NOT modify the sku, specifically the 'puid_' part; we use that to match
+      //      items from the cart
       sku: `puid_${lfmProd.puId}`,
       images: [
         {
@@ -261,6 +263,26 @@ class Shopify {
       delete shopifyProduct.images
     }
     return shopifyProduct
+  }
+
+
+  findCartItems (orderData) {
+    const lineItems = orderData.line_items.filter(item => item.sku.match(/^puid_/))
+    const orderItems = lineItems.map(item => ({
+      sku: item.sku,
+      lfm_puid: item.sku.split('puid_')[1],
+      item_price: item.price,
+      shopify_line_item_id: item.id,
+      shopify_product_id: item.product_id,
+      shopify_variant_id: item.variant_id,
+      title: item.title,
+      // use this isntead of qty; qty is what was asked for,
+      // but fulfillable_quantity shows actual amt delivered
+      // (taking into account edits and deletions)
+      // orig_qty: item.quantity,
+      qty: item.fulfillable_quantity
+    }))
+    return orderItems
   }
 
   async _setInventoryLevel(inventoryItemId, qty) {

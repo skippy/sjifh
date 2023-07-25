@@ -1,0 +1,394 @@
+{
+  "total_discounts_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "billing_address": {
+    "name": "Hogstone/ORCAS/ Jared Blackinton",
+    "longitude": -122.9048642,
+    "address1": "460 main street",
+    "latitude": 48.6944084,
+    "last_name": "Jared Blackinton",
+    "phone": null,
+    "first_name": "Hogstone/ORCAS/",
+    "city": "Eastsound",
+    "province_code": "WA",
+    "address2": "PO Box 1452",
+    "company": null,
+    "country_code": "US",
+    "province": "Washington",
+    "zip": "98245",
+    "country": "United States"
+  },
+  "current_total_duties_set": null,
+  "current_total_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    }
+  },
+  "admin_graphql_api_id": "gid://shopify/Order/5067853562034",
+  "test": false,
+  "total_tax": "0.00",
+  "order_number": 8312,
+  "total_weight": 0,
+  "subtotal_price": "71.23",
+  "checkout_id": 32806120423602,
+  "phone": null,
+  "total_line_items_price": "71.23",
+  "cancelled_at": null,
+  "current_total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "app_id": 580111,
+  "number": 7312,
+  "updated_at": "2023-07-23T13:25:19-07:00",
+  "payment_gateway_names": [
+    "I Have a Credit Card on File"
+  ],
+  "cancel_reason": null,
+  "estimated_taxes": false,
+  "line_items": [
+    {
+      "fulfillment_status": null,
+      "discount_allocations": [],
+      "id": 12716740575410,
+      "total_discount": "0.00",
+      "fulfillment_service": "manual",
+      "vendor": "Sundstrom's Little S",
+      "requires_shipping": true,
+      "duties": [],
+      "quantity": 1,
+      "name": "Beef Steak, Hanging Tender  (1.61)  [SJIFH]",
+      "product_exists": true,
+      "variant_title": null,
+      "taxable": false,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12716740575410",
+      "gift_card": false,
+      "tax_lines": [],
+      "total_discount_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "price": "17.81",
+      "price_set": {
+        "presentment_money": {
+          "amount": "17.81",
+          "currency_code": "USD"
+        },
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "17.81"
+        }
+      },
+      "product_id": 7739561148594,
+      "properties": [],
+      "title": "Beef Steak, Hanging Tender  (1.61)  [SJIFH]",
+      "sku": "puid_6200",
+      "fulfillable_quantity": 1,
+      "variant_id": 43184836935858,
+      "grams": 0,
+      "variant_inventory_management": "shopify"
+    },
+    {
+      "variant_title": null,
+      "quantity": 1,
+      "fulfillment_service": "manual",
+      "product_exists": true,
+      "variant_inventory_management": "shopify",
+      "id": 12716740608178,
+      "fulfillment_status": null,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12716740608178",
+      "taxable": false,
+      "variant_id": 43184836608178,
+      "discount_allocations": [],
+      "duties": [],
+      "price_set": {
+        "shop_money": {
+          "amount": "53.42",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "53.42",
+          "currency_code": "USD"
+        }
+      },
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        }
+      },
+      "gift_card": false,
+      "tax_lines": [],
+      "title": "Chard, Rainbow (5 lb)  [SJIFH]",
+      "vendor": "Watmough Bay Farm",
+      "name": "Chard, Rainbow (5 lb)  [SJIFH]",
+      "product_id": 7717235884210,
+      "total_discount": "0.00",
+      "properties": [],
+      "grams": 0,
+      "sku": "puid_6609",
+      "requires_shipping": true,
+      "price": "53.42",
+      "fulfillable_quantity": 1
+    }
+  ],
+  "location_id": null,
+  "reference": "449ab9924823a8992199df6301c66b6b",
+  "client_details": {
+    "browser_ip": "207.32.160.179",
+    "browser_height": null,
+    "accept_language": "en-US",
+    "browser_width": null,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+    "session_hash": null
+  },
+  "id": 5067853562034,
+  "current_total_additional_fees_set": null,
+  "total_tip_received": "0.00",
+  "fulfillments": [],
+  "current_total_discounts": "0.00",
+  "device_id": null,
+  "current_total_tax_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "shipping_address": {
+    "province_code": "WA",
+    "city": "Eastsound",
+    "address1": "460 main street",
+    "province": "Washington",
+    "address2": "PO Box 1452",
+    "first_name": "Hogstone/ORCAS/",
+    "zip": "98245",
+    "company": null,
+    "latitude": null,
+    "last_name": "Jared Blackinton",
+    "longitude": null,
+    "phone": null,
+    "country_code": "US",
+    "name": "Hogstone/ORCAS/ Jared Blackinton",
+    "country": "United States"
+  },
+  "source_identifier": "449ab9924823a8992199df6301c66b6b",
+  "discount_codes": [],
+  "presentment_currency": "USD",
+  "po_number": null,
+  "total_outstanding": "71.23",
+  "tags": "",
+  "referring_site": "https://orcasfood.coop/",
+  "total_price": "71.23",
+  "discount_applications": [],
+  "buyer_accepts_marketing": false,
+  "note_attributes": [],
+  "landing_site_ref": null,
+  "total_discounts": "0.00",
+  "subtotal_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    }
+  },
+  "created_at": "2023-07-23T13:25:18-07:00",
+  "total_line_items_price_set": {
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    },
+    "shop_money": {
+      "amount": "71.23",
+      "currency_code": "USD"
+    }
+  },
+  "contact_email": "hogstone@gmail.com",
+  "total_price_set": {
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    },
+    "presentment_money": {
+      "currency_code": "USD",
+      "amount": "71.23"
+    }
+  },
+  "user_id": null,
+  "checkout_token": "6e2b495bf249c191c9229a8cded97539",
+  "customer_locale": "en",
+  "original_total_additional_fees_set": null,
+  "shipping_lines": [
+    {
+      "requested_fulfillment_service_id": null,
+      "discounted_price": "0.00",
+      "id": 4289389363378,
+      "discounted_price_set": {
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "tax_lines": [],
+      "price": "0.00",
+      "source": "shopify",
+      "title": "Orcas Food Co-op PICK-UP",
+      "code": "Orcas Food Co-op PICK-UP",
+      "phone": null,
+      "carrier_identifier": "650f1a14fa979ec5c74d063e968411d4",
+      "price_set": {
+        "shop_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        },
+        "presentment_money": {
+          "currency_code": "USD",
+          "amount": "0.00"
+        }
+      },
+      "discount_allocations": []
+    }
+  ],
+  "tax_lines": [],
+  "order_status_url": "https://provisionswholesale.coop/41111748762/orders/3ccb5987d6b3d97980d4dc97b3f264e3/authenticate?key=bbaab671b690be374d28170523df58a7",
+  "browser_ip": "207.32.160.179",
+  "taxes_included": false,
+  "closed_at": null,
+  "refunds": [],
+  "current_subtotal_price": "71.23",
+  "payment_terms": null,
+  "note": null,
+  "confirmed": true,
+  "name": "#8312",
+  "customer": {
+    "accepts_marketing_updated_at": "2021-08-12T11:05:22-07:00",
+    "sms_marketing_consent": null,
+    "phone": null,
+    "accepts_marketing": false,
+    "verified_email": true,
+    "currency": "USD",
+    "email_marketing_consent": {
+      "consent_updated_at": null,
+      "state": "not_subscribed",
+      "opt_in_level": "single_opt_in"
+    },
+    "multipass_identifier": null,
+    "created_at": "2021-08-12T11:05:22-07:00",
+    "first_name": "Hogstone/ORCAS/",
+    "email": "hogstone@gmail.com",
+    "marketing_opt_in_level": null,
+    "default_address": {
+      "country": "United States",
+      "company": "",
+      "province": "Washington",
+      "name": "Hogstone/ORCAS/ Jared Blackinton",
+      "customer_id": 5443035562162,
+      "phone": null,
+      "country_name": "United States",
+      "country_code": "US",
+      "address2": "PO Box 1452",
+      "last_name": "Jared Blackinton",
+      "province_code": "WA",
+      "zip": "98245",
+      "city": "Eastsound",
+      "default": true,
+      "address1": "460 main street",
+      "first_name": "Hogstone/ORCAS/",
+      "id": 7715471392946
+    },
+    "last_name": "Jared Blackinton",
+    "admin_graphql_api_id": "gid://shopify/Customer/5443035562162",
+    "tags": "Business 2, Orcas, Peterson7, SJIFH Pickup",
+    "id": 5443035562162,
+    "note": null,
+    "tax_exemptions": [],
+    "updated_at": "2023-07-23T13:25:18-07:00",
+    "state": "enabled",
+    "tax_exempt": true
+  },
+  "fulfillment_status": null,
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "71.23",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "71.23",
+      "currency_code": "USD"
+    }
+  },
+  "current_total_price": "71.23",
+  "currency": "USD",
+  "email": "hogstone@gmail.com",
+  "cart_token": "c1-1e92d9e24acaf2240656575c69dd994c",
+  "merchant_of_record_app_id": null,
+  "tax_exempt": true,
+  "total_tax_set": {
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "shop_money": {
+      "currency_code": "USD",
+      "amount": "0.00"
+    }
+  },
+  "source_url": null,
+  "landing_site": "/",
+  "original_total_duties_set": null,
+  "current_total_tax": "0.00",
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "USD"
+    }
+  },
+  "financial_status": "pending",
+  "token": "3ccb5987d6b3d97980d4dc97b3f264e3",
+  "processed_at": "2023-07-23T13:25:16-07:00",
+  "source_name": "web",
+  "confirmation_number": "I1GPNYPH8"
+}
