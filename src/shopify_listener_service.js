@@ -21,6 +21,7 @@ app.disable('x-powered-by')
 // app.use(expressLogger({ format: 'dev' }));
 
 app.post('/', async (req, res) => {
+  const shopify = new Shopify()
   const message = req.body.message
   if (message.attributes['X-Shopify-Topic'] !== 'orders/updated') {
   // if (message.attributes['X-Shopify-Topic'] !== 'orders/updated' &&
