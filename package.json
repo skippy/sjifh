@@ -39,7 +39,7 @@
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "p-limit": "^4.0.0",
-    "playwright": "^1.36.1",
+    "playwright": "^1.36.2",
     "read-last-lines": "^1.8.0",
     "shopify-api-node": "^3.12.5",
     "winston": "^3.10.0",
