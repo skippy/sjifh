@@ -41,7 +41,7 @@
     "p-limit": "^4.0.0",
     "playwright": "^1.36.2",
     "read-last-lines": "^1.8.0",
-    "shopify-api-node": "^3.12.5",
+    "shopify-api-node": "^3.12.6",
     "winston": "^3.10.0",
     "yargs": "^17.7.2"
   },
