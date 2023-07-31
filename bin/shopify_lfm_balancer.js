@@ -146,7 +146,7 @@ switch (argv.verbose) {
             } else {
               // insert!
               logger.debug(`${i + 1}/${numProducts}: inserting new shopify product`)
-              const shopifyProduct = await createShopifyProductStruct(lfmProd)
+              const shopifyProduct = await shopify.createProductStructFromLFM(lfmProd)
               // await shopify.createProduct(shopifyProduct)
               return shopify.createProduct(shopifyProduct)
               // return shopify.client.product.create(shopifyProduct);

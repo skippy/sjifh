@@ -267,7 +267,7 @@ class Shopify {
 
 
   findCartItems (orderData) {
-    const lineItems = orderData.line_items.filter(item => item.sku.match(/^puid_/))
+    const lineItems = orderData.line_items.filter(item => item.sku && item.sku.match(/^puid_/))
     const orderItems = lineItems.map(item => ({
       sku: item.sku,
       lfm_puid: item.sku.split('puid_')[1],
