@@ -1,5 +1,6 @@
 const config = require('./config.js')
 const logger = require('./modules/logger.js')
+const { DateTime } = require("luxon")
 const { chromium } = require('playwright')
 const os = require('os')
 const path = require('path')
@@ -135,7 +136,7 @@ class LFM {
     //   logger.error('previous qty was not found... investigate; meanwhile, not modifying')
     //   return false
     }
-    await this._addNewItemToOrder(productUnitId, qty)
+    return await this._addNewItemToOrder(productUnitId, qty)
   }
 
   async getOrder () {
@@ -307,19 +308,23 @@ class LFM {
     await searchField.press('Tab')
     // NOTE: this is a hack, BUT sometimes LFM fires off a bunch of requests and
     await this.page.waitForLoadState('networkidle')
-    // await delay(200)
     const productRequest = await productRequestPromise
+    // FIXME: this is NOT an ok hack... we need to match somewhere else
+    await delay(1000)
     const prodResponse = await productRequest.response()
     const foundProducts = (await prodResponse.json()).items
     if (foundProducts.length === 0) {
+      // FIXME:
       logger.error('FIXME: no product found')
-      // FIXME:
+      return false
     } else if (foundProducts.length > 1) {
-      logger.error('FIXME: too many products found')
-      // FIXME:
-    } else if (foundProducts[0].qtyAvail < 1) {
-      logger.error('FIXME: product no longer available')
+       // FIXME
+     logger.error('FIXME: too many products found')
+      return false
+x    } else if (foundProducts[0].qtyAvail < 1) {
       // FIXME
+      logger.error('FIXME: product no longer available')
+      return false
     } else {
       // NOTE: the response may have come in, but the page may not have finished refreshing...
       // so added an additional wait and tighter selectors
@@ -327,8 +332,9 @@ class LFM {
       await this.page.locator('.uk-modal-dialog-large .sticky-table-header td input[type="text"]#qty').locator('visible=true').focus()
       await this.page.keyboard.type(_.toString(qty))
       await this.page.click('.uk-modal-dialog-large button:visible:has-text("Done")')
+      logger.verbose('ADDED')
     }
-    logger.verbose('ADDED')
+    return true
   }
 
   async _modifyExistingItemOnOrder (productUnitId, qty, prevQty) {
