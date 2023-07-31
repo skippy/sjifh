@@ -1,4 +1,5 @@
 {
+	"lfm_tz": "America/Los_Angeles",
 	"log_level": "debug",
 	"shopify_shop_origin": "provisions-co-op-wholesale",
 	"shopify_default_product_tags": ["SJIFH", "San Juan Islands Food Hub"],

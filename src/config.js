@@ -16,6 +16,12 @@ const config = convict({
     arg: 'nodeEnv',
     env: 'NODE_ENV'
   },
+  lfm_tz: {
+    format: String,
+    default: 'UTC',
+    required: true,
+    env: 'LFM_TZ'
+  },
   log_level: {
     format: ['debug', 'verbose', 'info', 'warn', 'error'],
     default: 'info',

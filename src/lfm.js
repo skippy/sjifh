@@ -193,11 +193,12 @@ class LFM {
     }, `https://sanjuanislandsfoodhub.lfmadmin.com/grow/api/SetupPeriodEdit/${periodId}`)
 
     const subPeriodData = periodData.subperiods.find(sub => sub.psDayId === parseInt(subPeriodId))
-    const today = new Date()
-    const startDate = new Date(`${subPeriodData.firstOrderDay} ${subPeriodData.firstOrderTime}`)
-    const endDate = new Date(`${subPeriodData.orderCutoffDay} ${subPeriodData.orderCutoffTime}`)
-    logger.debug(`_isPeriodOpen: id: ${periodId}, subId: ${subPeriodId} - ${startDate.toISOString()} <-> ${endDate.toISOString()} --- ${today.toISOString()} -- ${today >= startDate && today <= endDate}`)
-    return (today >= startDate && today <= endDate)
+    const now = DateTime.now().setZone(config.get('lfm_tz'))
+    const startDate = DateTime.fromFormat(`${subPeriodData.firstOrderDay} ${subPeriodData.firstOrderTime}`, "MM/dd/yyyy HH:mm:ss", { zone: config.get('lfm_tz') })
+    const endDate = DateTime.fromFormat(`${subPeriodData.orderCutoffDay} ${subPeriodData.orderCutoffTime}`, "MM/dd/yyyy HH:mm:ss", { zone: config.get('lfm_tz') })
+
+    logger.debug(`_isPeriodOpen: id: ${periodId}, subId: ${subPeriodId} - ${startDate.toString()} <-> ${endDate.toString()} --- ${now.toString()} -- ${now >= startDate && now <= endDate}`)
+    return (now >= startDate && now <= endDate)
   }
 
   _urlParams (url) {
