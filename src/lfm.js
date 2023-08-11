@@ -198,8 +198,9 @@ class LFM {
     const startDate = DateTime.fromFormat(`${subPeriodData.firstOrderDay} ${subPeriodData.firstOrderTime}`, "MM/dd/yyyy HH:mm:ss", { zone: config.get('lfm_tz') })
     const endDate = DateTime.fromFormat(`${subPeriodData.orderCutoffDay} ${subPeriodData.orderCutoffTime}`, "MM/dd/yyyy HH:mm:ss", { zone: config.get('lfm_tz') })
 
-    logger.debug(`_isPeriodOpen: id: ${periodId}, subId: ${subPeriodId} - ${startDate.toString()} <-> ${endDate.toString()} --- ${now.toString()} -- ${now >= startDate && now <= endDate}`)
-    return (now >= startDate && now <= endDate)
+    const periodIsOpen = (now >= startDate && now <= endDate)
+    logger.debug(`_isPeriodOpen: ${periodIsOpen} -- id: ${periodId}, subId: ${subPeriodId} - ${startDate.toString()} <-> ${endDate.toString()} --- ${now.toString()}`)
+    return periodIsOpen
   }
 
   _urlParams (url) {
