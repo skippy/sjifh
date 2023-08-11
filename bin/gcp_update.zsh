@@ -68,6 +68,9 @@ gcloud run jobs deploy update-shopify-from-lfm \
   --args='update-shopify' \
   --args='-vvv' \
   --service-account "${service_acct}" \
+  --memory='756Mi' \
+  --max-retries=0 \
+  --parallelism=0 \
   --set-secrets 'LFM_PASSWORD=LFM_PASSWORD:latest' \
   --set-secrets 'LFM_USERNAME=LFM_USERNAME:latest' \
   --set-secrets 'SHOPIFY_ACCESS_TOKEN=SHOPIFY_ACCESS_TOKEN:latest'
