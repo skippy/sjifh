@@ -33,7 +33,7 @@ async function validLFMProducts (lfm, ignore_closed_period) {
   const products = await lfm.getAvailProducts(ignore_closed_period)
   _.remove(products, (item) => {
     if (item.customerPrice < minPrice){
-      logger.verbose(`removing item because below min price: ${item.puId} (${item.customerPrice} < ${minPrice}`)
+      logger.verbose(`removing item because below min price: ${item.puId} (${item.customerPrice} < ${minPrice})`)
       return true
     }
     return false
