@@ -47,7 +47,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
+    "chai": "^4.3.9",
     "chai-http": "^4.4.0",
     "firebase-admin": "^11.10.1",
     "mocha": "^10.2.0",
